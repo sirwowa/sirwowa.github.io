@@ -1,0 +1,10 @@
+{
+  "name": "MSX NoName Launcher",
+  "version": "0.0.1",
+  "parameter": "https://raw.githubusercontent.com/sirwowa/sirwowa.github.io/refs/heads/main/start-prisma.json",
+  "welcome": "content",
+  "note": "For this service, Media Station X 0.1.132 or higher is needed.",
+  "launcher": {
+    "type": "start"
+  }
+}
