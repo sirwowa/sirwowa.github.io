@@ -1,3 +1,27 @@
+SIDELINE UPDATE 37 – BILD VOM GERÄT AUSWÄHLEN
+
+INSTALLATION
+ZIP entpacken und den Inhalt des Ordners touchdown über deine vorhandenen Sideline-Dateien auf ALL-INKL kopieren. Einschließlich _private und api.php vollständig hochladen, Programmdateien überschreiben. Nichts löschen; keinen zweiten touchdown/touchdown-Ordner anlegen. Sammlung, Fotos, Passwort, Schlüssel, Preise und laufende manuelle Abgleiche bleiben erhalten. Danach App vollständig schließen und erneut öffnen. Dies ist ein Web-App-/PWA-Update; keine neue APK erforderlich.
+
+VERWENDUNG
+1. VAULT → Karte manuell anlegen oder Menü Manuell → Karte manuell anlegen.
+2. „Bild vom Gerät auswählen“ drücken und ein Foto aus Fotos/Galerie oder Dateien wählen.
+3. Im Zuschnitt Zoom und Position einstellen, sodass nur die Karte im Rahmen liegt. Bei Bedarf Hoch-/Querformat wechseln.
+4. „Zuschnitt übernehmen“ drücken. Das Foto erscheint in der Vorschau des Kartenformulars.
+5. Kartendaten eingeben und „Karte speichern“ drücken. Erst jetzt wird das zugeschnittene Bild zusammen mit der Karte im VAULT gespeichert.
+
+Die Bildauswahl steht auch beim Bearbeiten bestehender Karten zur Verfügung. Ein neues Foto ersetzt das bisherige erst nach Übernehmen des Zuschnitts und Speichern der Karte. Wenn du den Zuschnitt abbrichst, bleibt das bisherige Foto erhalten. Eine ungültige Bilddatei löscht deine Vorschau nicht. Getippte Kartendaten bleiben bei der Bildauswahl erhalten.
+
+FORMATE UND VERARBEITUNG
+JPEG/JPG, PNG und WebP bis 12 MB Ausgangsgröße. Dateikopf und tatsächliche Browser-Bilddekodierung werden geprüft. HEIC/HEIF bitte vorab als JPEG exportieren, falls dein Gerät beim Auswählen nicht bereits konvertiert. Der vorhandene Zuschnitt verkleinert das Bild und speichert es als JPEG innerhalb der bestehenden serverseitigen Bildgrenze. Das Original auf deinem Gerät wird nicht verändert.
+
+Für das Auswählen und Zuschneiden wird kein getUserMedia-Kamerazugriff und keine Erkennungs-API gestartet. Der Zuschnitt erfolgt im Browser. Die Übertragung in deinen geschützten Kartenspeicher geschieht erst beim Speichern. Deine bestehende automatische Preis-Einstellung und ein später bewusst gestarteter manueller Abgleich bleiben separat gültig; der Abgleich kann das gespeicherte Foto für eingerichtete Bilderkennungsanbieter verwenden.
+
+PRÜFUNG
+Auf Desktop und Smartphone geprüft: Bild auswählen, zuschneiden, mit manuell getippten Daten speichern, kein Kamera-/Erkennungsaufruf, Bearbeiten und Abbrechen mit Erhalt des alten Bildes, Ablehnung einer ungültigen Datei ohne Datenverlust. Die vorhandenen automatisierten Prüfungen bestehen. Alle Funktionen aus Update 36 bleiben enthalten.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 36 – VOLLSTÄNDIG MANUELL EINTRAGEN UND SPÄTER ABGLEICHEN
 
 INSTALLATION
