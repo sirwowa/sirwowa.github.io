@@ -1,3 +1,17 @@
+SIDELINE UPDATE 30 – GEMINI-VERBINDUNGSTEST
+
+Auf ALL-INKL den Ordner touchdown aus diesem Update über den vorhandenen Ordner hochladen und Dateien überschreiben. Nicht den bestehenden Ordner löschen. Vorher eine Sicherung erstellen. Config, Karten, Fotos, Passwörter, API-Schlüssel, Katalogimporte und Zähler sind nicht Bestandteil dieses Updates und bleiben erhalten.
+
+Danach App neu laden und Einstellungen öffnen. „Gemini-Verbindung testen“ ausführen. Bei weiterem Fehler „Serverdiagnose anzeigen“ drücken und die angezeigte Fehlerzeile mit Diagnose-Code weitergeben. Keine API-Schlüssel senden. Die Diagnose ist nur nach Anmeldung zugänglich, nennt PHP-Version, cURL, benötigte Funktionen und den letzten internen PHP-Fehler. Geheimnisse werden aus der Fehlermeldung entfernt; keine Fotos oder vollständigen Anfragen werden protokolliert.
+
+Kompatibilität: aktuelle cURL-Protokolloption statt veralteter Konstante, kein veralteter curl_close-Aufruf, verständliche Fehler bei fehlenden PHP-Funktionen bzw. beschädigten privaten JSON-Dateien. Kein automatisches Löschen oder Zurücksetzen solcher Dateien. PHP 8.1 oder neuer erforderlich.
+
+Der interne Serverfehler des konkreten ALL-INKL-Servers konnte ohne dessen Diagnose nicht nachgestellt werden. Dieses Update liefert die Diagnose und behebt mögliche Laufzeitprobleme; eine bestimmte Ursache ist noch nicht bestätigt. Google HTTP 503 bleibt ein vorübergehender Anbieterausfall und ist kein interner PHP-Fehler. Ein zweiter Versuch erfolgt höchstens einmal, falls die PHP-Funktion dafür verfügbar ist; beide Versuche zählen.
+
+Android 2.3 und iOS-Quellprojekt 1.7 bleiben unverändert. Keine neue APK nötig. NFL-Katalog weiterhin teilweise: 22 Produkte, 27.698 Zeilen, kein vollständiger Weltkatalog.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 29 — GEMINI-SCHLUSSPRÜFUNG, NUMMERIERTE KARTEN, NFL-KATALOG
 Android 2.3 · iOS-Quellprojekt 1.7 (kein signiertes IPA)
 
