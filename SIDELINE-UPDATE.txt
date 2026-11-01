@@ -1,3 +1,27 @@
+SIDELINE UPDATE 31 – VAULT UND VARIANTENPRÜFUNG
+
+INSTALLATION
+ZIP entpacken. Den Ordner touchdown über den vorhandenen Ordner auf ALL-INKL hochladen, Dateien überschreiben. Den vorhandenen Ordner NICHT löschen. Vorher Backup erstellen. Karten, Fotos, Passwort, API-Schlüssel, Katalogimporte, Preisstände und Kontingentzähler sind nicht Bestandteil des Updates und bleiben erhalten. Danach App komplett neu laden, gegebenenfalls einmal schließen und erneut öffnen. Keine neue APK erforderlich; dieses Paket aktualisiert die Web-App und den gemeinsamen PHP-Server.
+
+VAULT
+Ein fehlendes öffnendes Zeichen im HTML der Kartenkachel verursachte sichtbaren HTML-Text und falsch ineinander verschachtelte Karten. Behoben. Jede Karte bleibt eine eigenständige Rasterkachel. Bilder bleiben in ihrer Kachel, lange Setnamen laufen nicht über das Raster hinaus. Parallelbezeichnung und vorhandene Seriennummer erscheinen direkt in der Kachel. Bestehende Daten werden nicht automatisch umgeschrieben.
+
+SELTENE VARIANTEN
+Nach dem Scan wird die verfügbare Variantenliste der konkreten Cardsight-Karte geladen. Varianten mit bekannter Auflage erscheinen aufsteigend. Bei eingegebener Seriennummer stehen passende Auflagen vorne. Beispielsweise 03/10 kann mehrere Katalogvarianten mit /10 eingrenzen, beweist aber allein keine bestimmte Parallelklasse.
+
+Neu: „Seltene Variante mit Gemini prüfen“ in den Ergebnisdetails. Zuerst Variantenliste laden, dann Gemini als letzte Bildprüfung ausführen. Die normale automatische Gemini-Schlussprüfung beim Speichern bleibt bestehen. Beide Abläufe berücksichtigen Katalogvarianten und bekannte Auflagen. Maximal 120 passende Kandidaten werden an Gemini übergeben, zuerst gewählte Variante, dann passende Serienauflagen, dann weitere nummerierte Varianten. Bei sehr umfangreichen Listen ist das keine vollständige Überprüfung aller Varianten. Der Katalog kann ebenfalls unvollständig sein. Nicht jede seltene Karte ist nummeriert.
+
+Gemini erhält Anweisungen, auch seltene Inserts, Short Prints, sichtbare Folienmuster und Seriennummern zu berücksichtigen. Modellvorschläge ändern deine gewählte Variante NICHT automatisch. Bei Unsicherheit oder Widersprüchen wird zur Prüfung angehalten. Eine reine OCR-Abschrift ohne vollständige Identitäts-/Variantenprüfung zählt nicht als erfolgreiche Schlussprüfung. Fehler beim Laden der Variantenliste sind sichtbar und können bewusst erneut versucht werden. Parallele Ladevorgänge derselben Karte werden zusammengefasst.
+
+VORAUSSETZUNGEN UND GRENZEN
+Funktionierender Cardsight-Zugang für dessen Variantenkatalog. Funktionierender Gemini-Schlüssel, Scan+ und automatische Schlussprüfung in Einstellungen aktivieren; Verbindung testen. API-Fehler oder Google 503 werden durch das Update nicht zu erfolgreichen Erkennungen. Zusätzliche Abfragen können Anbieter-Kontingent und Kosten verursachen. Cache und vorhandene Limits bleiben aktiv; keine ungefragte Massenabfrage aller seltenen Karten.
+
+Eine Erkennungsquote von 99 % ist NICHT nachgewiesen und wird nicht versprochen. Die Tests prüfen Layout, übermittelte Daten, Fehlerbehandlung und Speicherentscheidungen mit kontrollierten Anbieterantworten. Es gab keinen repräsentativen Foto-Benchmark und keinen erfolgreichen Live-Erkennungstest aller Anbieter. Reflexionen, unlesbare Aufdrucke und fehlende Katalogeinträge bleiben Grenzen. Für schwierige Folienkarten steht weiterhin der Zwei-Winkel-Modus bereit. Kein Echtheits- oder Seltenheitsnachweis.
+
+Die PHP-/Gemini-Diagnose aus Update 30 bleibt enthalten: Einstellungen → Serverdiagnose. Bei weiterem Fehler Diagnose-Code und bereinigte Fehlerzeile mitteilen, keine Schlüssel.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 30 – GEMINI-VERBINDUNGSTEST
 
 Auf ALL-INKL den Ordner touchdown aus diesem Update über den vorhandenen Ordner hochladen und Dateien überschreiben. Nicht den bestehenden Ordner löschen. Vorher eine Sicherung erstellen. Config, Karten, Fotos, Passwörter, API-Schlüssel, Katalogimporte und Zähler sind nicht Bestandteil dieses Updates und bleiben erhalten.
