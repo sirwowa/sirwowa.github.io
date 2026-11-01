@@ -1,0 +1,7 @@
+NFL-Katalog 2024–2026
+Lokale Grundlage: CARDLEAGUE_American_Football_CSV.zip, vom Nutzer bereitgestellt.
+22 Produkt-CSV, 27.698 gültige Kartenzeilen. Keine Behauptung weltweiter Vollständigkeit.
+Produkt/Jahr/Hersteller aus Dateinamen, Untersets und Merkmale aus gelieferten Zeilen.
+Parallels-Listen werden als Listen aufbewahrt, nicht blind auf jede Karte multipliziert.
+Zusatzimport: eingerichteter Cardsight-Katalog, nur bestätigte Football-Kategorie.
+Quelle, Importfortschritt, Teilstand und Probleme sind in der App sichtbar.

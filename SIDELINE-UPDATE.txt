@@ -1,37 +1,129 @@
-SIDELINE UPDATE 28 — EIGENER MENÜPUNKT KARTENSUCHE
-Android 2.2 · iOS-Quellprojekt 1.6 (kein signiertes IPA)
+SIDELINE UPDATE 29 — GEMINI-SCHLUSSPRÜFUNG, NUMMERIERTE KARTEN, NFL-KATALOG
+Android 2.3 · iOS-Quellprojekt 1.7 (kein signiertes IPA)
 
-NEU
-„Kartensuche“ ist ein eigener Menüpunkt, auf dem Smartphone direkt in der unteren
-Navigation. Die Seite öffnet keine Kamera und zeigt beide Suchwege unmittelbar:
-- Kartennummer, Jahr, Hersteller und optional Spielername.
-- Freie Katalogsuche nach Spieler, Jahr oder Set.
-Sportart auswählbar. Treffer/Variante auswählen und im VAULT speichern.
-Bei unbekannter Sportart wird sie auf derselben Suchseite bestätigt.
-Es gelten weiterhin Duplikatprüfung, NFLverse-Ergänzung und vorhandene Anbieterzugänge.
-Scanner → Scan-Optionen → „Kartensuche öffnen“ führt ebenfalls auf diese Seite.
-Der Wechsel entfernt alte Dialogformulare, damit keine doppelten Suchfelder bleiben.
-Direktadresse nach Installation: https://app.4doubleu.de/touchdown/#cardsearch
+VERBINDLICHE AUTOMATISCHE REIHENFOLGE
+1. Cardsight und bei Bedarf AI CardVault suchen zuerst.
+2. Katalogdaten und NFLverse ergänzen verfügbare Spieler-/Kartenangaben.
+3. Du wählst die passende Karte und Parallelvariante aus.
+4. Beim Speichern prüft aktiviertes Gemini das eigene Kartenfoto gegen genau diese
+   Auswahl und ergänzt zuverlässig verfügbare fehlende Angaben.
+5. Erst danach wird im VAULT gespeichert oder die App hält zur Prüfung an.
 
-UPDATE — NICHTS LÖSCHEN
-1. Vorher in Einstellungen ein Sammlungs-Backup herunterladen.
+Bei genauer Erkennung verbraucht die Vorbereitungsphase keinen Gemini-Aufruf.
+Wenn vorherige Bilderkennungen keinen passenden Treffer liefern, darf Gemini
+als letzter Bilderkennungsversuch einen unbestätigten Vorschlag liefern. Danach
+wird NICHT automatisch erneut bei Cardsight/TheCardAPI/CSV gesucht. Eine manuell
+gewählte neue Suche bleibt möglich; deren Auswahl erhält wieder eine Schlussprüfung.
+Katalog-Recherchen und Preise haben weiterhin ihre vorhandenen Anbieterfunktionen.
+Gemini erfindet keine Marktpreise oder angeblichen bestätigten Verkäufe.
+
+Die Schlussprüfung bezieht sich auf Spieler, Jahr, Set, Kartennummer und gewählte
+Parallelvariante. Eine fehlende Variante bedeutet weiterhin nicht automatisch Base.
+Die App nimmt widersprüchliche Fotoangaben nicht blind als richtige Identität an.
+Unsicherheit, Abweichungen und ein Fehler bei der aktivierten Gemini-Schlussprüfung
+halten den automatischen Speichervorgang an. Du kannst die Auswahl korrigieren,
+erneut prüfen oder nach eigener Prüfung ausdrücklich die Bestätigung ankreuzen.
+Ein fehlgeschlagener Aufruf darf nicht als erfolgreiche Gemini-Prüfung erscheinen.
+Ein während des Aufrufs geänderter Treffer/eine andere Variante benötigt eine neue
+Prüfung; eine alte Antwort darf die neue Auswahl nicht freigeben.
+
+Gleiche Foto-/Identitäts-/Varianten-Prüfungen werden kurz zwischengespeichert.
+Ein erneutes Bestätigen verbraucht dadurch nicht unnötig weitere Google-Aufrufe.
+Der separate Verbindungstest bleibt vorhanden. Bei HTTP 503/504 erfolgt höchstens
+ein weiterer Versuch. Beide Versuche zählen einzeln gegen die lokale Monatsgrenze.
+Andere Fehler wie ungültige Schlüssel lösen keinen solchen Wiederholungsversuch aus.
+Manuell gestartetes Scan+ kann weiterhin bewusst vorzeitig genutzt werden.
+
+FOTO ERFORDERLICH
+Ohne eigenes Kartenfoto (z. B. nur per Kartennummer hinzugefügt) kann Gemini
+keine fotografische Identitäts-/Parallelprüfung deiner realen Karte ausführen.
+Die Katalogkarte bleibt manuell speicherbar; NFLverse ergänzt passende Daten.
+Später kannst du ein eigenes Foto anfügen und die Angaben ergänzen/prüfen lassen.
+Ein Katalogbild ist kein unabhängiger Nachweis, welche Karte tatsächlich vor dir liegt.
+Keine Garantie für jede Karte, Variante oder nicht lesbare Druckmerkmale.
+
+GEMINI EINRICHTEN
+Einstellungen → Gemini: Schlüssel aus AI Studio speichern, Scan+ aktivieren und
+„Gemini als letzte Prüfung vor dem Speichern nutzen und fehlende Angaben ergänzen“
+einschalten. Mit deinem Sideline-Passwort speichern, danach Verbindung testen.
+Gespeichert bedeutet nicht automatisch gültig: Fehler wie API_KEY_INVALID,
+Modellfreigaben und Kontingent werden über den Verbindungstest sichtbar.
+Das Modell bleibt gemini-flash-latest. Schlüssel nur auf deinem Webserver.
+Die öffentliche ZIP enthält keine persönlichen Zugangsdaten.
+
+UPDATE OHNE LÖSCHEN
+1. Sammlungs-Backup herunterladen und vorhandenen privaten Serverordner sichern.
 2. ZIP auf dem Computer entpacken.
-3. Enthaltenen Ordner touchdown/ im bisherigen Domain-Hauptordner mit dem vorhandenen
-   touchdown/ zusammenführen. Gleichnamige PROGRAMMDATEIEN überschreiben, keine
-   nicht mitgelieferten Dateien löschen. Nicht in touchdown/touchdown/ hochladen.
-4. Seite/PWA schließen und erneut öffnen, gegebenenfalls neu laden. Offline-Cache 28.
-Sammlung, Fotos, Passwort, Schlüssel und gespeicherte Werte bleiben erhalten.
-Dieses öffentliche Update enthält keine persönlichen Schlüssel oder Laufzeitdateien.
+3. touchdown/ im bisherigen Domain-Hauptordner mit dem bestehenden touchdown/
+   ZUSAMMENFÜHREN. Gleichnamige Programmdateien überschreiben. Keine nicht
+   enthaltenen Serverdateien löschen; nicht in touchdown/touchdown/ hochladen.
+4. PWA/Seite schließen, erneut öffnen und neu laden. Offline-Cache 29.
+Sammlung, Fotos, Passwort, gespeicherte Schlüssel, Zähler und Werte bleiben erhalten.
+Keine config.php/cards.php/installation.php/provider-install.php im Web-Update.
+Alle bisherigen Funktionen einschließlich eigenem Menü „Kartensuche“ bleiben enthalten.
 
-ANDROID
-Der neue eigene Navigationseintrag „Suche“ ist in Android 2.2 enthalten.
-Neue APK über die bestehende App installieren; NICHT vorher deinstallieren.
-Für den Download auf deiner Website sideline.apk im Domain-Hauptordner aktualisieren.
+ANDROID / IPHONE
+Android 2.3 über die vorhandene App installieren, NICHT vorher deinstallieren.
+Für den Download-Link auf deiner Website sideline.apk im Domain-Hauptordner erneuern.
+Ältere native Apps können Gemini noch früher anfordern; für die neue feste
+Phasentrennung deshalb auch das Android-Update installieren.
+iPhone-PWA übernimmt das Web-Update. iOS 1.7 ist ein syntaktisch geprüftes
+Quellprojekt ohne Xcode-Build, Signierung oder installierbares IPA.
 
-IPHONE
-Die auf dem Homebildschirm installierte Web-App übernimmt das Web-Update.
-Das iOS-Quellprojekt 1.6 besitzt ebenfalls einen Such-Tab; es wurde syntaktisch
-geprüft, aber nicht mit Xcode gebaut oder signiert. Kein installierbares IPA.
+PRÜFGRENZEN
+Phasenfolge, Datenübernahme, Fehler und manuelle Bestätigung sind automatisiert
+mit simulierten Karten-/KI-Antworten geprüft. Echte Gemini-Schlüsselgültigkeit
+konnte hier wegen des Netzwerkblocks nicht geprüft werden. Den Verbindungstest
+auf deinem ALL-INKL-Server ausführen. NFLverse-Kopien 2022–2026 bleiben enthalten.
 
-Die bisherigen Funktionen aus Update 27 bleiben enthalten. NFLverse-Saisondaten
-und Anbietergrenzen sind in UPDATE-V27-ANLEITUNG.txt / NFLVERSE-DATENQUELLEN.txt erklärt.
+AKTUELLE ZUSÄTZLICHE ÄNDERUNGEN
+Verein, Trikotnummer, Position und Kartentyp sind in der Karten-Detailansicht
+und dem Dashboard-Highlight ausgeblendet. Gespeicherte Daten und Zuordnungslogik
+bleiben intern erhalten. Auch die native Karten-Detailansicht ist angepasst.
+
+NUMMERIERTE KARTEN
+Kartennummer (#123) und individuelle Seriennummer (07/99) werden separat gespeichert.
+Gemini kann die auf dem eigenen Foto lesbare Nummerierung in der Schlussprüfung
+übernehmen. Vorhandene Nummerierung kann beim Treffer geprüft/korrigiert werden.
+Wenn der ausgewählten Parallelvariante eine bekannte Auflage zugeordnet ist,
+wird eine abweichende Seriennummer/Auflage als Widerspruch behandelt.
+Verschiedene gedruckte Exemplare (07/99 und 08/99) werden nicht blind zu einer
+Anzahl zusammengeführt. 007/099 und 7/99 zählen für die Duplikatprüfung als dieselbe
+Nummerierung. Ein Scan kann bei Reflexionen oder unlesbaren Stempeln unsicher bleiben.
+
+LOKALER NFL-/AMERICAN-FOOTBALL-KATALOG 2024 BIS HEUTE
+Kartensuche → „NFL-Katalog ab 2024 öffnen“ oder Einstellungen → NFL-Katalog.
+Die bereits mitgelieferte Datenbank wurde aus deiner CARDLEAGUE-ZIP aufgebaut:
+22 Produkte mit 27.698 gültigen Kartenzeilen und ihren gelieferten Unterset-/
+Variantenangaben. 2024 sind nur 2 Produktdateien, 2025 17 und 2026 3 enthalten.
+Das ist ausdrücklich NICHT der vollständige Katalog aller erschienenen NFL-Karten.
+Dateien enthalten keine Kartenbilder; es werden keine Variantenkombinationen erfunden.
+Sie stehen sofort für lokale Suche, Trefferabgleich und VAULT-Übernahme bereit.
+„Habe ich“-Spalten ändern nicht deine echte Sammlung; keine falschen Besitzmarkierungen.
+Vorhandene selbst importierte Dateien haben Vorrang vor der mitgelieferten Kopie.
+
+Für die Ergänzung aller beim Anbieter verfügbaren NFL-Produkte/Sets:
+1. Web-Update hochladen und in der App anmelden.
+2. Einen funktionierenden Cardsight-Schlüssel unter Einstellungen speichern.
+3. NFL-Katalog öffnen → „Alle verfügbaren NFL-Sets ab 2024 importieren“.
+4. Seite offen lassen. Der Import lädt schrittweise Produkte, Untersets, Karten
+   und gelieferte Variantenlisten. Es werden keine Bilder massenhaft heruntergeladen.
+5. Bei einem Fehler oder ausgeschöpfter Grenze pausiert er mit gespeicherter Position.
+   Nach Behebung/erneutem Kontingent mit „Anbieter-Import fortsetzen“ weitermachen.
+Der Import nutzt die vorhandene konservative Cardsight-Grenze (maximal 750 lokale
+Anfragen pro UTC-Monat). Keine automatische Tariferhöhung. Große Kataloge können
+mehrere Kontingentzeiträume benötigen. Seine Abdeckung hängt von deinem Anbieter-
+Katalog, der Freischaltung und dessen vollständigen Daten ab. Unklare Sportzuordnung
+wird gemeldet; sie darf keine angeblich vollständige NFL-Abdeckung vortäuschen.
+Im Cloud-Paket ist kein privater Cardsight-Schlüssel enthalten. Den Anbieterimport
+konnte ich daher nicht auf deinem ALL-INKL-Server durchführen; die echte vorhandene
+CSV-Grundlage ist dagegen bereits beigefügt. Eine weltweite Vollständigkeit wird
+nicht behauptet. Quellen und vorhandener Stand bleiben im Katalog sichtbar.
+
+GEMINI-PROJEKTANGABEN
+„Default Gemini Project“, ein projects/…-Verweis, eine Projektnummer und die
+Projekt-ID sind keine API-Schlüssel. In Google AI Studio → API-Schlüssel beim
+gewünschten Schlüssel „Kopieren“ wählen. Diese Zeichenfolge in Sideline eintragen.
+Danach aktivieren, mit dem SIDELINE-Passwort speichern und Verbindung testen.
+HTTP 503 UNAVAILABLE bedeutet eine nicht abgeschlossene Anbieteranfrage, nicht
+einen erfolgreichen Kartenscan. Die App meldet einen bleibenden Fehler sichtbar.
