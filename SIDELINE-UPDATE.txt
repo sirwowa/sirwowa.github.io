@@ -1,3 +1,36 @@
+SIDELINE UPDATE 38 – SPEICHERN UND PRÜFEN BESCHLEUNIGT
+
+INSTALLATION
+ZIP entpacken. Inhalt des Ordners touchdown über deine vorhandenen Sideline-Dateien auf ALL-INKL kopieren. Alle Programmdateien einschließlich api.php und _private übertragen, überschreiben, nichts löschen. Keine zweite touchdown/touchdown-Ebene anlegen. Vorher Backup erstellen, soweit zugänglich. Sammlung, Fotos, Kennwort, Schlüssel, Preise, eigene Katalogimporte und laufende manuelle Abgleiche bleiben erhalten. App danach vollständig schließen und neu öffnen. Dieses Update optimiert die Web-App/PWA; native APK/iOS-Projekte wurden nicht neu gebaut.
+
+WAS BISHER ZEIT GEKOSTET HAT
+Nach jedem normalen Speichern wurde zusätzlich die gesamte Sammlung inklusive aller Bilder erneut angefordert. Die Speicherantwort selbst enthielt das gerade hochgeladene Bild nochmals. Beim Bearbeiten bzw. Favorisieren wurden auch unveränderte Bilder wieder hochgeladen. Scan+ konnte für eine bereits ausgewählte Karte zweimal Gemini aufrufen. Der manuelle Abgleich wartete nach jedem Quellenschritt pauschal 1,2 Sekunden, sogar bei lokalen oder nicht eingerichteten Quellen.
+
+ÄNDERUNGEN
+- Nach Anlegen, Bearbeiten, Favorisieren, Löschen und bestätigtem KI-/Scan-Speichern wird die lokale VAULT-Ansicht direkt aus der Serverantwort aktualisiert. Kein zusätzlicher vollständiger Sammlungsabruf für diese Aktionen.
+- Der neue Browser fordert nach erfolgreicher Abstimmung mit der neuen Schnittstelle kompakte Einzelkartenantworten an. Bereits lokal vorhandene bzw. gerade hochgeladene Bilder bleiben im Browser erhalten und werden nicht nochmals in der Antwort zurückgesendet.
+- Bei Metadatenänderungen werden unveränderte Fotos nicht erneut hochgeladen. Der Server erhält stattdessen die vorhandenen Bilddaten; neue oder geänderte Fotos werden weiterhin regulär geprüft und gespeichert. Explizite Bildänderungen gehen nicht verloren.
+- Ältere Clients ohne diesen Modus bekommen weiterhin vollständige Kartenantworten. Backups enthalten weiterhin die Fotos. Bei fehlender neuer Serverfunktion fällt der Browser auf das kompatible Verhalten zurück, ohne Bilder wegen fehlender Felder zu löschen.
+- Der manuelle Abgleich lädt nach einer Übernahme nur die geänderte Karte nach. Die pauschale 1,2-Sekunden-Pause je Schritt ist entfernt. Erforderliche Anbieter-Abstände und Kontingente gelten weiterhin; bei TheCardAPI wird nur dessen tatsächlich notwendiger Abstand berücksichtigt.
+- Scan+ nutzt für eine bereits gewählte Karte direkt einen abschließenden Gemini-Aufruf statt einer zusätzlichen separaten Abschrift plus Schlussprüfung. Wenn dieselbe Prüfung beim Speichern noch läuft, wartet Speichern auf dieses Ergebnis, statt die gleiche Prüfung nochmals zu starten. Änderungen an Spieler, Set, Nummer, Jahr, Sport oder Variante benötigen weiterhin eine passende neue Prüfung.
+- Neu aufgenommene und zugeschnittene Fotos werden mit moderater JPEG-Kompression gespeichert. Die bisherige maximale Einzelbild-Auflösung bis 1600 Pixel bleibt erhalten; große Ergebnisse werden zusätzlich komprimiert. Das ist verlustbehaftete JPEG-Kompression. Vorhandene gespeicherte Fotos und Originaldateien auf deinem Gerät werden nicht umgerechnet oder verändert.
+
+DATENSICHERHEIT UND GRENZEN
+Die Bestätigung von KI-/eBay-Vorschlägen, Dublettenprüfung, Variantenkontrolle, Schutz vor veralteten Ergebnissen und sämtliche Anbieterlimits bleiben erhalten. Es wird kein Anbieterfehler als erfolgreiche Prüfung dargestellt und kein ungeprüfter Treffer automatisch gespeichert.
+
+Der erste Sammlungsabruf beim Öffnen sowie vollständige Backups laden weiterhin die gesamte Sammlung. Der bestehende geschützte JSON-Dateispeicher auf deinem Webspace wurde nicht migriert; sehr große Sammlungen können weiterhin Server-/Speicherzeit benötigen. Änderungen von anderen Geräten siehst du nach erneutem Laden. Die Offline-Kopie bleibt wie bisher eine bewusst zu aktualisierende, verschlüsselte Kopie; Fotos stehen auch nach kompakter Speicherung lokal dafür bereit.
+
+Echte API-Laufzeiten von Google, Cardsight, Ximilar, AI CardVault, eBay und TheCardAPI sowie Upload-Geschwindigkeit und ALL-INKL-Limits lassen sich dadurch nicht garantieren. Ein vollständiger Vergleich aller Quellen benötigt weiterhin mehr Zeit als ein einzelner direkter KI-Scan. Es werden keine Erkennungsprüfungen still übersprungen, um eine schnelle erfolgreiche Erkennung vorzutäuschen.
+
+PRÜFUNG
+95 automatisierte Tests sowie gezielte Desktop-/Smartphone-Browserprüfungen bestehen. Geprüft wurden kompakte und kompatible Antworten, Bilderhalt beim Bearbeiten/Favorisieren, vollständige Backups, keine erneute Sammlungsabfrage nach Speichern, keine doppelte Prüfung bei gleichzeitigem Prüfen/Speichern, Dubletten und Schutz bei geänderter Variante.
+
+Mit einem kontrollierten Testfoto hatte die neue Speicherantwort 824 Zeichen statt der zusätzlich enthaltenen 821.339 Zeichen Bilddaten; nach dem Speichern gab es null vollständige Sammlungsabrufe. Dies ist eine Datenmengenmessung eines Testfalls, keine garantierte Speicherdauer auf deinem Webserver. Der lokale manuelle Abgleich ohne externe Anbieter lief im Browservergleich merklich kürzer, weil die festen Pausen entfielen. Die tatsächliche Laufzeit deines Hostings und deiner Anbieter wurde nicht direkt gemessen.
+
+Alle Funktionen aus Update 37 bleiben enthalten, einschließlich manueller Bilderauswahl, manuellem Sammelabgleich, KI-Menü und ausführlicher Gemini-Anleitung.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 37 – BILD VOM GERÄT AUSWÄHLEN
 
 INSTALLATION
