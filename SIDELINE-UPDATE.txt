@@ -1,3 +1,51 @@
+SIDELINE UPDATE 32 – AUTOMATISCHE PREISE, CARDLOADER UND XIMILAR
+
+INSTALLATION
+ZIP entpacken und den Ordner touchdown über deinen vorhandenen Ordner auf ALL-INKL hochladen. Dateien überschreiben, nichts löschen. Vorher ein Backup machen. Dieses Update enthält keinen privaten Laufzeitbestand: Sammlung, Fotos, Kennwort, vorhandene Schlüssel, eigene Katalogimporte, Preise und Zähler bleiben erhalten. Neue geschützte Speicherdateien werden bei Nutzung erzeugt. App nach dem Upload vollständig schließen und neu öffnen. Die bestehende Android-App muss dafür nicht neu installiert werden; native Funktionen wurden nicht erweitert. Die neuen Import-/Einstellungsseiten gehören zur Web-App.
+
+AUTOMATISCHE PREISE OHNE MANUELLE KATALOGZUORDNUNG
+In Einstellungen → Automatische Preise & Cardloader aktivieren/deaktivieren. Standard ist an, entsprechend deinem Wunsch. Die Einstellung gilt auf dem jeweiligen Gerät. Bei Dashboard/VAULT werden bis zu drei noch nicht abgefragte Karten pro Seitenaufruf nacheinander geprüft. Neue Scanner-Speicherungen und das Öffnen einer Karte können ebenfalls eine Prüfung starten. Andere Karten lassen sich mit „Preise bewusst abrufen“ gesammelt aktualisieren. Anbieter-Kontingent, Kosten und bisherige lokalen Obergrenzen gelten weiterhin. Bei ausgeschalteter Automatik werden neue automatische Abfragen nicht gestartet.
+
+Die manuelle Zuordnung ist nicht zwingend. Vorhandene Cardsight-ID wird genutzt; andernfalls sucht die App anhand von Spieler, Jahr, vollständig passendem Set und Kartennummer nach genau einer Kartenfamilie. Die Parallelvariante wird anschließend separat validiert. Eine interne eindeutige Cardsight-Zuordnung wird nur für die Preisabfrage verwendet und verändert deine Karte nicht. Mehrere Familien oder unvollständige Angaben bleiben ohne automatische Zuordnung.
+
+Alternativ sucht TheCardAPI direkt nach bestätigten eBay-Verkäufen, ohne Cardsight-ID. Für automatische Übernahme müssen strukturierte Spieler-, Jahres-, Set-/Varianten-, Nummern- und Grading-Angaben exakt passen. Die Set-Angabe des Verkaufs muss die genaue gewählte Variante enthalten. Ein passender Suchtext oder Verkaufstitel allein genügt nicht. Bei Seriennummern muss die belegte Auflage passen; sie ist nicht die Kartennummer. Diese strenge Zuordnung kann dazu führen, dass keine automatischen Vergleichspreise verfügbar sind. Dann bleibt die manuelle TheCardAPI-Vergleichsprüfung erhalten.
+
+Es erscheint ein einzelner Euro-Preis: Durchschnitt der passenden bestätigten Verkäufe. Cardsight kann bei fehlendem aktuellen Durchschnitt weiterhin den letzten belegten eBay-Verkauf liefern; dieser wird ausdrücklich so bezeichnet. Keine aktiven Angebotspreise, keine unbekannten Best-Offer-Endpreise, keine von Gemini erfundenen Preise. Umrechnung mit verfügbarem Tageskurs. VAULT und Dashboard verwenden dieselben Werte; Gesamtwert berücksichtigt die Anzahl. Fehlende Werte bleiben „—“ und werden nicht als null Euro bewertet.
+
+Erfolgreiche Preisabfragen werden serverseitig bis zu 24 Stunden zwischengespeichert, erfolglose bis zu 15 Minuten. Ältere Preisstände bleiben als Abrufstand sichtbar; die Automatik kann sie nach einem Tag aktualisieren. Nach Änderungen der preisrelevanten Identität wird neu geprüft. Ein einzelner Verkauf ist kein garantierter heutiger Marktwert.
+
+BASE UND OFFENE VARIANTEN
+Leer bedeutet unbestimmt, nicht automatisch Base. Wähle beim Scannen Base bewusst aus oder trage unter Bearbeiten „Base“ ein. Ohne feststehende Variante wird kein Base-Preis für eine unbekannte Parallelkarte angesetzt. Alte Karten ohne Variantenbestätigung können daher zunächst ohne Preis bleiben.
+
+CARDLOADER IN DER WEB-APP
+Neuer Menüpunkt Cardloader-Import; auf dem Smartphone auch über Einstellungen → Cardloader-Import & CSV-Export.
+1. CSV aus Cardloader oder passender Tabelle wählen: UTF-8, Komma/Semikolon/Tab, maximal 2 MB und 500 Zeilen.
+2. Vorschau prüfen. Eine Sitzung wird geschützt gespeichert und ist später fortsetzbar.
+3. Optional passende Fotos auswählen. Zuordnung über den in CSV genannten Dateinamen. Lokale Dateipfade oder Web-Adressen werden niemals eigenmächtig geöffnet. Bei mehrfach gleichen Dateinamen wird kein Foto zugeordnet.
+4. Gewünschte Karten einzeln ankreuzen, Prüfung bestätigen, in VAULT übernehmen. Dubletten werden ausgelassen, vorhandene Karten nicht überschrieben. Wiederholte Übernahme derselben Zeile erstellt keine zweite Karte.
+5. VAULT als CSV exportieren; für vollständige Sicherung inklusive Fotos weiterhin das JSON-Backup verwenden.
+
+Zeilen ohne Kartennamen werden ausgelassen. Nicht alle Desktop-CSV-Sonderfelder werden übernommen. Fremdpreise aus price_usd/price_eur werden nur als ungeprüfte Notiz importiert, nie als bestätigter Marktwert. Parallelfelder bleiben offen, wenn das CSV sie nicht liefert. KI-Gradingwerte werden nicht zu professionellen Zertifikaten umgedeutet. Maximal 20 Importsitzungen; Entfernen einer Sitzung löscht keine VAULT-Karte.
+
+XIMILAR EINRICHTEN
+Einstellungen → Cardloader · Ximilar-Erkennung. Deinen echten Ximilar-API-Schlüssel dort privat eintragen, „Ximilar aktivieren“ ankreuzen und mit deinem Sideline-Passwort speichern. Kein Schlüssel ist in der ZIP enthalten. Die Speicherung allein bestätigt noch nicht den API-Zugang. „Mit Ximilar erkennen“ nach einer Aufnahme prüft ihn mit einer echten Erkennung.
+
+Anbindung auf Grundlage des hochgeladenen Cardloader-Quellcodes: POST https://api.ximilar.com/collectibles/v2/analyze, Authorization: Token, privater Base64-Bildausschnitt, Rotation aktiviert. Identitätsvorschläge und Alternativen können ausgewählt werden; keine angeblich garantierte Sicherheit. Automatisch wird Ximilar erst nach erfolglosen bisherigen Erkennungen und vor Gemini eingesetzt. Die Gemini-Schlussprüfung bleibt bestehen. Lokale Grenze 100 Ximilar-Versuche pro UTC-Monat, auch fehlgeschlagene zählen. Ximilar-Tarif, Credits und Freischaltung gelten zusätzlich. Foto wird nur für den gestarteten Scan an Ximilar gesendet; keine automatische Cards-Cloud-Spiegelung.
+
+XIMILAR-PREISE UND GRADING
+Der Originalcode von Cardloader verwendet einen repräsentativen Median aus Ximilar-Statistiken. Das belegt nicht automatisch den gewünschten Durchschnitt echter Verkäufe. Deshalb sind Ximilar-Preisstatistiken bei dieser Erkennung ausgeschaltet; Preisbezug erfolgt über die bestehenden Verkaufsquellen. Ximilar-Grading, Magic AI, Comics-/Slab-Sonderabläufe, Cloud-Spiegelung und Verkaufsveröffentlichung wurden nicht portiert. Ein Ximilar-Schlüssel aktiviert nicht automatisch all diese Zusatzfunktionen.
+
+CARDSTREAM
+Die zusätzlich genannten Cardstream-Funktionen betreffen einen separaten Python-Dienst mit Modellgewichten und Webcam-/RTSP-/OBS/RTMP-Eingängen. Sie laufen nicht als einfache PHP-Dateien auf dem bisherigen ALL-INKL-Webspace. Kein Installationsskript wurde blind ausgeführt; Python-Dienst, Stream-Eingänge und Gewichte sind nicht installiert. Die Web-App verwendet weiterhin ihren vorhandenen automatischen Kamerascan und die direkte Ximilar-Anbindung.
+
+DEUTSCHE FUNKTIONSÜBERSICHT
+Im Cardloader-Menü „Was kann Cardloader?“ öffnen (touchdown/cardloader-info.html). Sie erklärt Originalfunktionen und tatsächlich integrierten Umfang getrennt: CSV, Sitzungen, Erkennung, Scanner, Cloud, lokale Modelle, eBay, Shopify/Whatnot/TCGplayer und MCP. Native USB-/TWAIN-/SANE-Scannersteuerung und lokale Modelle benötigen weiterhin die eigenständige Desktop-App. Keine Angebote werden automatisch veröffentlicht, keine Bilder zu ImgBB oder Cards Cloud hochgeladen.
+
+QUELLEN UND PRÜFUNG
+Grundlage: deine Cardloader-ZIP, Ximilar-com/cardloader, Apache-2.0. Lizenz in touchdown/cardloader-LICENSE.txt; PHP-/Web-Anpassungen vom 01.11.2026. Cardstream-Erklärung anhand deiner bereitgestellten Angaben. Native Drittkomponenten werden nicht mitgeliefert. Programmabläufe und kontrollierte Anbieterantworten sind getestet. Ohne deinen neuen Ximilar-Schlüssel konnte kein echter Zugriff auf deinen Tarif oder eine gemessene Erkennungsgenauigkeit bestätigt werden. Keine nachgewiesene 99-Prozent-Trefferquote.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 31 – VAULT UND VARIANTENPRÜFUNG
 
 INSTALLATION
