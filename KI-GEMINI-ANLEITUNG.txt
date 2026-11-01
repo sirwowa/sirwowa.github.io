@@ -1,0 +1,110 @@
+SIDELINE – AUSFÜHRLICHE GEMINI-KI-ANLEITUNG
+KI einrichten · Sideline
+
+Gemini-Kartenscan einrichten
+
+← Zum Menü KI
+
+Im Menü KI wird dein eigenes Kartenfoto direkt von Google Gemini ausgewertet. Andere Erkennungsanbieter müssen dafür nicht eingerichtet sein. Gemini liefert einen Vorschlag; du vergleichst die Daten mit deiner Karte und bestätigst das Speichern. Eine sichere Erkennung jeder Karte oder eine Trefferquote von 99 % ist nicht nachgewiesen.
+
+
+1. Update auf ALL-INKL hochladen
+
+- Die Update-ZIP auf deinem Gerät entpacken. Nicht nur die ZIP-Datei auf den Webspace legen.
+
+- Per FTP oder ALL-INKL-Dateiverwaltung den vorhandenen Ordner öffnen, in dem deine Sideline-Datei index.php liegt. Zur Adresse app.4doubleu.de/touchdown/ gehört normalerweise der bestehende Ordner touchdown.
+
+- Den Inhalt des ZIP-Ordners touchdown dorthin kopieren und Programmdateien überschreiben. Auch den Unterordner _private vollständig mit übertragen. Keinen zweiten Ordner touchdown/touchdown erzeugen.
+
+- Nichts löschen. Deine vorhandenen Dateien für Sammlung, Passwort und Schlüssel bleiben erhalten. Erstelle vorher eine Sicherung, soweit möglich.
+
+- Die App vollständig schließen und erneut öffnen. Falls der neue Menüpunkt fehlt, die Seite neu laden. Im ALL-INKL-KAS muss für die Domain PHP 8.1 oder neuer aktiv sein.
+
+
+2. Den richtigen Google-Schlüssel kopieren
+
+- https://aistudio.google.com/api-keys Google AI Studio → API-Schlüssel öffnen und mit deinem Google-Konto anmelden.
+
+- Dein für Gemini vorgesehenes Projekt auswählen und einen Gemini-API-Schlüssel erstellen oder den vorhandenen Schlüssel über „Kopieren“ übernehmen.
+
+- Du brauchst die vollständige geheime Schlüssel-Zeichenfolge. Projektname, Projekt-ID, Projektnummer und ein Verweis wie projects/… sind keine API-Schlüssel. Auch ein OAuth-Zugriffstoken ist nicht dasselbe.
+
+- Verwende den Schlüssel nur direkt in der App. Nicht hier im Chat senden, nicht in eine öffentlich erreichbare Datei schreiben und keine Anführungszeichen, Shell-Befehle oder Backslashes mitkopieren.
+
+Der Schlüssel muss Aufrufe der Gemini Developer API für dein gewähltes Projekt erlauben. Eine ausschließlich für Browser-Referrer zugelassene Verwendung passt nicht zu diesem PHP-Aufruf vom Webserver. Beschränkungen und Kontingent im gewählten Google-Projekt prüfen; passende API-Beschränkungen beibehalten. Eine IP-Beschränkung benötigt die tatsächliche ausgehende Server-IP, die du gegebenenfalls beim Hoster erfragen musst.
+
+
+3. In Sideline speichern
+
+- Sideline über HTTPS öffnen und mit deinem bisherigen Sideline-Passwort anmelden.
+
+- Den Menüpunkt KI wählen. Auf dem Smartphone ist er auch über Mehr → KI · Gemini-Kartenscan erreichbar.
+
+- Gemini einrichten & Verbindung prüfen öffnen.
+
+- Den kopierten Schlüssel in Gemini-API-Schlüssel einfügen und Gemini aktivieren ankreuzen.
+
+- Dein Sideline-Passwort eintragen – nicht dein Google-Passwort – und Gemini privat speichern drücken.
+
+Ein bereits gespeicherter Schlüssel wird nicht erneut angezeigt. Beim späteren Speichern das Schlüsselfeld leer lassen, um ihn zu behalten. KI und die bisherigen Gemini-Einstellungen verwenden denselben Schlüssel, dasselbe Modell und denselben lokalen Monatszähler. Die automatische Schlussprüfung des normalen Scanners kann separat ausgeschaltet sein; der bewusst gestartete KI-Scan funktioniert trotzdem, wenn Gemini selbst aktiviert ist.
+
+
+4. Verbindung testen
+
+Gemini-Verbindung testen drücken. Die App sendet eine kleine echte Testanfrage an Google. Erst eine erfolgreiche Antwort bestätigt Schlüssel, Verbindung und Modellzugriff für diesen Test. „Schlüssel gespeichert“ allein ist keine erfolgreiche Verbindung. Ein erfolgreicher Texttest beweist noch nicht, dass jedes Kartenfoto richtig erkannt wird.
+
+Auch dieser Versuch zählt zum lokalen Gemini-Limit. Bei Google HTTP 503/504 wird höchstens einmal wiederholt; beide Versuche zählen. Google kann je nach Tarif abrechnen. Die lokale Versuchszahl ist kein Geldlimit. Dein Kontingent bzw. erforderliche Abrechnung musst du im passenden Google-Projekt prüfen; die App schaltet keine kostenpflichtigen Tarife frei.
+
+
+5. Eine Karte fotografieren und speichern
+
+- Kamera öffnen drücken und den Kamerazugriff erlauben. Unter HTTPS funktioniert die Kamera auch auf dem Smartphone.
+
+- Eine Karte in den Rahmen legen. Spielername, Nummer und Set-Aufdruck müssen möglichst lesbar sein. Diffuses Licht hilft; starke Reflexionen und Blitz vermeiden.
+
+- Den Auslöser drücken. Bei eingerichteter, aktivierter Verbindung startet Gemini direkt. Sonst kannst du das Foto behalten, die Einrichtung abschließen und danach Mit Gemini erkennen drücken.
+
+- Während der Analyse bleibt dein Foto sichtbar. Die App ruft für diesen Scan weder Cardsight, Ximilar, AI CardVault noch eBay auf.
+
+- Das KI-Ergebnis am Foto prüfen: Spieler, Jahr, Set, Kartennummer, Parallelvariante, Seriennummer und Sportart. Fehlende Angaben bleiben leer und können berichtigt werden. Gold/Silver oder Base werden nicht allein aus Glanz abgeleitet. 96/99 ist eine Seriennummer; sie ersetzt nicht die Kartennummer.
+
+- Die ausdrückliche Bestätigung ankreuzen und Geprüfte Karte im VAULT speichern drücken. Erst jetzt wird die Karte mit deinem eigenen Foto gespeichert. Die Bestätigung löst keinen zweiten Gemini-Scan aus.
+
+- Bei einer bereits vorhandenen Karte kannst du die Anzahl erhöhen oder nach eigener Prüfung ein separates Exemplar speichern. Unbeabsichtigtes Zusammenführen wird nicht automatisch durchgeführt.
+
+Nach dem Speichern öffnet sich der VAULT mit der vorhandenen Touchdown-Animation. Eine spätere automatische Preisabfrage richtet sich nach deiner Preis-Einstellung und verwendet bestätigte Verkaufsquellen; Gemini erfindet keinen Marktpreis. Ohne Internet gibt es keine neue Gemini-Erkennung. Der bestehende Offline-VAULT bleibt verfügbar.
+
+
+Wenn es nicht funktioniert
+
+Das Foto bleibt bei einem Fehler erhalten. Die App speichert dabei keine Karte automatisch. Lies die genaue Meldung und öffne bei Bedarf im selben KI-Menü Serverdiagnose anzeigen. Du kannst die bereinigte Fehlerzeile, HTTP-/cURL-Code, PHP-Version und Diagnose-Code weitergeben. Keinen Schlüssel mitsenden.
+
+- cURL 6: Der Server kann die Google-Adresse nicht auflösen. DNS beim Hoster prüfen lassen.
+
+- cURL 7: Keine Verbindung zum Google-Server. Ausgehendes HTTPS zu generativelanguage.googleapis.com beim Hoster prüfen lassen.
+
+- cURL 28: Zeitlimit überschritten. Zuerst den kleinen Verbindungstest ausführen. Funktioniert er, danach das Foto erneut separat über KI prüfen. Bei wiederholtem Fehler den Code und den Zeitpunkt beim Hoster prüfen lassen.
+
+- cURL 60 oder 77: Zertifikats-/CA-Prüfung auf dem Webserver fehlgeschlagen. Hoster muss Zertifikatsbestand/PHP-cURL prüfen. Die TLS-Prüfung nicht deaktivieren.
+
+- HTTP 400/401/403 bzw. API_KEY_INVALID: Vollständigen echten Schlüssel, ausgewähltes Projekt, Einschränkungen, Modellzugriff und API-Freigabe prüfen. Eine neue Projekt-ID repariert keinen falsch kopierten Schlüssel.
+
+- HTTP 429: Lokales oder Google-Kontingent erschöpft. Die genaue Meldung beachten; Google-Limit und gegebenenfalls erforderliche Abrechnung im richtigen Projekt prüfen.
+
+- HTTP 503/504: Vorübergehender Anbieter-/Zeitfehler. Später erneut testen; keine bestätigte Erkennung.
+
+- Fehlende Datei oder PHP-Fehler: Update einschließlich api.php und _private/ki-scan.php vollständig hochladen. Bestehende Daten nicht löschen.
+
+- Keine Kamerafreigabe: HTTPS verwenden, Kamera in den Website-/Browser-Einstellungen erlauben und andere Apps schließen, die sie blockieren könnten.
+
+Der direkte KI-Aufruf hat ein eigenes Zeitbudget: maximal 30 Sekunden je Google-HTTP-Aufruf innerhalb eines begrenzten Gesamtablaufs. Der Hoster kann eigene Grenzen setzen. Eine längere Wartezeit behebt keine DNS-, Zertifikats- oder Schlüsselprobleme.
+
+
+Welche Gemini-Schnittstelle wird verwendet?
+
+Die von dir bereitgestellte Referenz nennt https://generativelanguage.googleapis.com und den Header x-goog-api-key. Diese Werte passen zur App. Dieses Update verwendet für einzelne Kartenfotos die vorhandene REST-Schnittstelle POST /v1beta/models/gemini-flash-latest:generateContent mit Bilddaten und strukturiertem JSON-Ergebnis. Schlüssel werden ausschließlich vom PHP-Server gesendet.
+
+Die Referenz führt zusätzlich die Interactions API für neue Projekte, Live-WebSockets und Agents auf. Sie benötigen andere Anfrage-/Antwortformate bzw. Abläufe. Ein Wechsel darauf ist keine belegte Reparatur eines DNS- oder Verbindungsfehlers; dieses Update stellt die vorhandene Schnittstelle deshalb nicht ungeprüft um. Python, Node.js, Docker und ein Google-SDK musst du für diesen PHP-Webscan nicht installieren.
+
+Die Programmabläufe wurden mit kontrollierten Antworten getestet. Ob dein Google-Projekt auf deinem ALL-INKL-Server tatsächlich antwortet, zeigt erst der Verbindungstest dort.
+

@@ -1,3 +1,41 @@
+SIDELINE UPDATE 35 – EIGENES MENÜ KI
+
+INSTALLATION
+ZIP entpacken. Inhalt des enthaltenen Ordners touchdown in den bestehenden Ordner deiner Sideline-App auf ALL-INKL kopieren, Programmdateien überschreiben. Auch api.php und _private vollständig übertragen. Keinen zweiten Ordner touchdown/touchdown anlegen. Nichts löschen. Sammlung, Fotos, Passwort, vorhandene API-Schlüssel, Preise, Katalogimporte und Zähler bleiben erhalten. Vorher Sicherung erstellen, soweit zugänglich. PHP 8.1 oder neuer erforderlich. Danach App vollständig schließen und neu öffnen. Die Asset-Version wurde auch in der PHP-Seitenvorlage aktualisiert, damit die neue Menüoberfläche geladen wird.
+
+STARTEN
+https://app.4doubleu.de/touchdown/#ki öffnen oder Menü KI wählen. Auf dem Smartphone ist der Menüpunkt auch unter Mehr erreichbar. Der bestehende normale Scanner mit seinen anderen Anbietern bleibt separat erhalten. Dieses Update erweitert die Web-App/PWA; native APK/iOS-Quellprojekte wurden nicht neu gebaut.
+
+EINRICHTUNG
+1. https://aistudio.google.com/api-keys öffnen und den vollständigen echten Gemini-API-Schlüssel deines gewünschten Projekts kopieren. Kein Projektname, keine Projektnummer, keine Projekt-ID und kein OAuth-Token.
+2. In Sideline anmelden → KI → Gemini einrichten & Verbindung prüfen.
+3. Schlüssel einfügen, Gemini aktivieren ankreuzen, DEIN SIDELINE-PASSWORT eintragen und Gemini privat speichern drücken. Nicht dein Google-Passwort eingeben.
+4. Gemini-Verbindung testen drücken. Erst eine erfolgreiche echte Testantwort bestätigt Verbindung/Schlüssel/Modellzugriff für diesen Test. Ein gespeicherter Schlüssel allein bedeutet nicht, dass er funktioniert.
+5. Kamera öffnen, Kamerazugriff erlauben, eine Karte lesbar in den Rahmen legen und fotografieren. Das Foto wird direkt von Gemini ausgewertet. Cardsight, Ximilar, AI CardVault und eBay werden für diesen KI-Scan nicht aufgerufen.
+6. Spieler, Jahr, Set, Kartennummer, Parallelvariante, Seriennummer und Sport prüfen/berichtigen. Ausdrückliche Bestätigung ankreuzen → Geprüfte Karte im VAULT speichern. Dein eigenes Foto bleibt erhalten. Erst die Bestätigung speichert die Karte; kein zweiter Gemini-Scan wird dabei gestartet.
+7. Bei Dubletten kannst du die Anzahl erhöhen oder ein separates Exemplar speichern. Nach erfolgreichem Speichern öffnet sich der VAULT mit der vorhandenen Touchdown-Animation. Preisabfragen bleiben von deiner bestehenden Preis-Einstellung abhängig.
+
+DIREKTER GEMINI-ABLAUF
+Das KI-Menü verwendet denselben privaten Gemini-Schlüssel und lokalen Monatszähler wie Scan+ und die normale Schlussprüfung. Gemini selbst muss aktiviert sein. Die automatische Schlussprüfung des normalen Scanners muss für den bewusst gestarteten KI-Scan nicht aktiviert sein. So kann dieses Menü ohne vorgeschaltete Erkennungsanbieter geprüft werden.
+
+Gemini liefert einen unbestätigten Vorschlag aus sichtbaren Merkmalen, keinen garantierten Katalogtreffer. Unlesbare Daten bleiben leer; ein Parallelvorschlag muss am Foto geprüft werden. Keine 99-Prozent-Garantie, keine Echtheits- oder Grading-Bestätigung, keine erfundenen Preise. Kartennummer und Seriennummer (z. B. 96/99) bleiben getrennt. Ohne API-Antwort wird kein Ergebnis erfunden und keine Karte automatisch gespeichert. Dein Foto bleibt bei Fehlern für einen erneuten Versuch erhalten. Kamera wird beim Menüwechsel geschlossen.
+
+BASIS/AUTHENTIFIZIERUNG
+Deine bereitgestellte Referenz nennt generativelanguage.googleapis.com und den x-goog-api-key-Header. Diese Werte stimmen mit der vorhandenen App-Anbindung überein. Für Einzelbildaufträge bleibt die vorhandene REST-Schnittstelle /v1beta/models/gemini-flash-latest:generateContent mit Bilddaten und strukturiertem JSON bestehen. Interactions API, Live-WebSockets und Agents benötigen andere Formate/Abläufe; eine ungeprüfte Umstellung würde einen DNS-/Verbindungsfehler nicht beheben. Auf ALL-INKL ist hierfür kein Python-, Node-, Docker- oder Google-SDK-Setup nötig.
+
+ZEIT, KOSTEN UND FEHLER
+Der direkte KI-Aufruf erhält ein eigenes Zeitbudget und hängt nicht am Restbudget vorheriger Anbieter. Maximal 30 Sekunden pro Google-HTTP-Aufruf im begrenzten Gesamtablauf; Hoster-Grenzen gelten zusätzlich. Ein Verbindungstest und jeder fehlgeschlagene Versuch zählen zum lokalen Limit. Bei HTTP 503/504 gibt es höchstens einen zweiten Versuch, der separat zählt. Google-Kontingent und mögliche Kosten gelten zusätzlich. Das lokale Versuchslimit ist kein Geldlimit.
+
+Unter KI steht Serverdiagnose direkt bereit. cURL 6 = DNS, 7 = Verbindungsaufbau, 28 = Timeout, 60/77 = CA/Zertifikatsprüfung. HTTP 400/401/403 = Anfrage/Schlüssel/Freigabe prüfen; 429 = lokales oder Google-Kontingent; 503/504 = Anbieter-/Zeitfehler. Keine TLS-Prüfung ausschalten. Rohschlüssel und Fotos werden nicht protokolliert. Die tatsächliche Ursache deiner bisherigen Verbindung konnte ohne neuen Test auf deinem Server nicht bestätigt werden.
+
+VOLLSTÄNDIGE ANLEITUNG
+Im KI-Menü „Schritt-für-Schritt-Anleitung öffnen“ oder touchdown/ki-anleitung.html öffnen. Zusätzlich KI-GEMINI-ANLEITUNG.txt in diesem Paket lesen. Sie erklärt ALL-INKL-Upload, AI Studio, Schlüsselrestriktionen, Sideline-Passwort, Kameraberechtigung, Speichern, Dubletten, Kosten und Fehlerdiagnose im Detail.
+
+PRÜFUNG
+Direkter Bildaufruf ohne andere Erkennungsanbieter, explizite Bestätigung, genau ein normaler Gemini-Fotoaufruf, eigener Fotoerhalt, Fehlerdarstellung, Kamerastopp, privates Schlüsselspeichern, separater Verbindungstest und Dublettenbehandlung wurden mit kontrollierten Antworten auf Desktop und Smartphone getestet. API- und Paketprüfungen erhalten bestehende Daten/Schlüssel. Es wurde kein funktionierender Live-Zugriff mit deinem Hosting-Schlüssel bestätigt. Neue KI-Erkennungen benötigen Internet; der bisherige Offline-VAULT bleibt erhalten.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 34 – EBAY ALS LETZTE RÜCKFALLSUCHE
 
 INSTALLATION
