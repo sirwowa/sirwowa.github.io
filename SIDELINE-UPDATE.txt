@@ -1,3 +1,33 @@
+SIDELINE UPDATE 34 – EBAY ALS LETZTE RÜCKFALLSUCHE
+
+INSTALLATION
+ZIP entpacken. Den Ordner touchdown vollständig über den bestehenden Ordner auf ALL-INKL hochladen, inklusive api.php und _private. Dateien überschreiben, nichts löschen. Sammlung, Fotos, Passwort, Schlüssel, Preise, Katalogimporte und Zähler sind nicht Teil des Updates und bleiben erhalten. Vorher eine Sicherung erstellen, soweit zugänglich. Danach App vollständig schließen und neu öffnen. Die PHP-Startkorrekturen aus Update 33 bleiben enthalten. Kein neues APK erforderlich; die neue Ergebnisoberfläche gehört zur Web-App.
+
+ABLAUF
+Cardsight, AI CardVault und aktiviertes Ximilar versuchen die Bilderkennung. Ohne bisherigen Kartentreffer darf aktiviertes Gemini die lesbaren Angaben als unbestätigten Vorschlag lesen. Erst wenn die bisherigen Anbieter keinen Kartentreffer liefern oder nur eine Gemini-Abschrift vorliegt, wird eBay als letzte Textsuche genutzt. Das eBay-Angebot ist keine bestätigte Fotoidentifikation.
+
+Automatische eBay-Suche benötigt lesbare Merkmale: Spieler plus Set/Kartennummer, oder Set, Nummer und Jahr. Eine Seriennummer allein reicht nicht. Wenn nichts ausreichend gelesen werden konnte, wird keine breite automatische Suche gesendet. Das Ergebnis zeigt ein Suchfeld, in dem du Spieler, Jahr, Set und Nummer ergänzen kannst. Das funktioniert auch ohne Gemini. Wenn ein vorhandener Treffer falsch ist: „Kein Treffer passt · eBay als letzte Suche“ öffnen und den Suchtext berichtigen.
+
+Ein Angebot auswählen → „Diesen Kartenvorschlag prüfen“. Die App lädt eBays strukturierte Angebotsmerkmale (Spieler, Jahr, Set, Kartennummer, Parallelvariante und Sport, soweit vorhanden). Fehlende Angaben werden nicht aus dem Titel erfunden. Verfügbare Foto-/Suchangaben können ergänzt werden; Abweichungen zwischen beiden Quellen werden angezeigt. Angaben vergleichen, korrigieren und die ausdrückliche Prüfung bestätigen. Danach „Geprüfte Kartendaten übernehmen“ und anschließend „Stimmt · speichern“. Dein eigenes Foto wird im VAULT gespeichert. Noch nichts wird allein durch Anzeigen eines Angebots gespeichert.
+
+Eine konfigurierte aktive Gemini-Schlussprüfung bleibt erhalten. Scheitert sie, wird das nicht als Erfolg dargestellt: Nach eigener Prüfung kannst du die sichtbare ausdrückliche Bestätigung verwenden. Die eBay-Suche und manuelle Übernahme funktionieren unabhängig davon, ob Gemini erreichbar ist. Unbekannte Parallelvariante bleibt leer, niemals automatisch Base. 96/99 bleibt eine Seriennummer, getrennt von der Kartennummer.
+
+EBAY-ZUGANG
+Einstellungen → eBay: Produktions-AppID (Client ID) und CertID (Client Secret) hinterlegen und mit dem App-Passwort speichern. Vorhandene Zugangsdaten bleiben erhalten. Ein erfolgreicher OAuth-Verbindungstest beweist noch keine Browse-API-Freischaltung. Fehlender Zugriff wird mit HTTP-Status gemeldet. Die Freischaltung und tatsächlichen Suchtreffer deines eBay-Kontos konnten hier ohne deine Hosting-Zugangsdaten nicht live geprüft werden.
+
+Technik: eBay Buy Browse API, item_summary/search und item/{item_id}; OAuth-Client-Credentials mit api_scope, Marketplace EBAY_US. Es wird nur Suchtext an eBay gesendet, kein eigenes Kartenfoto. Maximal 8 Angebote je Suche und konservativ 30 Such-/Detailversuche pro UTC-Tag. Fehler zählen mit. OAuth-Token liegt geschützt auf deinem Server und wird wiederverwendet. Suchergebnisse sind 15 Minuten gültig. Kein Scraping und keine eBay-Bildsuche; keine Käufe und keine Veröffentlichungen.
+
+PREISE UND ZUORDNUNG
+Aktive Angebotspreise werden weder als Marktpreis noch als tatsächlich gezahlter Verkaufspreis übernommen. Die bestehenden bestätigten Verkaufsquellen und die automatische Preisabfrage bleiben bestehen; fehlt ein passender Verkauf, bleibt der Preis offen. Eine eBay-Auswahl erzeugt keine erfundene Cardsight-ID. Die Quelle wird als eBay dokumentiert. Katalogzuordnung ist für die Übernahme in den VAULT nicht erforderlich, die Daten bleiben ein von dir geprüfter Vorschlag. Verkäufer können falsche Angaben oder Fotos verwenden; Varianten müssen sichtbar zu deiner Karte passen.
+
+GEMINI
+Die konkrete Ursache deines weiterhin fehlschlagenden Gemini-Zugangs ist noch nicht bekannt. Dieses Update behauptet keine behobene Google-Verbindung. Bitte die aktuelle Meldung aus Einstellungen → Gemini-Verbindung testen bzw. den Diagnose-Code aus der Serverdiagnose mitteilen, ohne Schlüssel. Du kannst den betroffenen Anbieter ausschalten und die übrigen Erkennungen sowie die letzte eBay-Suche weiter nutzen. Nur wenn kein anderer Dienst Merkmale lesen kann, musst du den Suchtext ergänzen.
+
+PRÜFUNG
+Such-/Detailablauf, Quellenkennzeichnung, Bestätigungen, Fotoerhalt, fehlende Katalog-ID, keine Übernahme von Angebotspreisen, Zugriffsschutz und Reihenfolge wurden mit kontrollierten Antworten auf Desktop und Smartphone geprüft. Keine gemessene Erkennungsquote und keine Garantie für jede Karte. Cardloader/Ximilar und die vollständige deutsche Funktionsübersicht bleiben enthalten.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 33 – SAMMLUNG WIEDER ZUGÄNGLICH HALTEN
 
 INSTALLATION
