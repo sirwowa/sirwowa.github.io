@@ -1,82 +1,37 @@
-SIDELINE UPDATE 27 — VAULT-SUCHE, NFLVERSE UND GEMEINSAME ERKENNUNG
-Android 2.1 · iOS-Quellprojekt 1.5 (kein signiertes IPA)
+SIDELINE UPDATE 28 — EIGENER MENÜPUNKT KARTENSUCHE
+Android 2.2 · iOS-Quellprojekt 1.6 (kein signiertes IPA)
 
-UPDATE OHNE DATENVERLUST
-1. In Einstellungen ein Sammlungs-Backup herunterladen; privaten Serverordner sichern.
-2. Die Update-ZIP auf deinem Computer entpacken.
-3. Den enthaltenen Ordner touchdown/ im Domain-Hauptordner mit deinem VORHANDENEN
-   touchdown/-Ordner zusammenführen. Gleichnamige PROGRAMMDATEIEN überschreiben.
-   NICHTS löschen, NICHT den ganzen Ordner entfernen/ersetzen und keine Funktion
-   nutzen, die nicht mitgelieferte Serverdateien löscht.
-4. Seite/PWA schließen, neu öffnen und neu laden. Der Offline-Cache ist Version 27.
-5. Einstellungen → Gemini → „Gemini-Verbindung testen · 1 Anfrage“.
-   Der Test nutzt den bereits gespeicherten Schlüssel auf DEINEM Server und zählt
-   als ein lokaler Gemini-Versuch. API_KEY_INVALID, Freigaben und Kontingentfehler
-   werden als solche angezeigt. Erst eine erfolgreiche Testantwort bestätigt Zugriff.
+NEU
+„Kartensuche“ ist ein eigener Menüpunkt, auf dem Smartphone direkt in der unteren
+Navigation. Die Seite öffnet keine Kamera und zeigt beide Suchwege unmittelbar:
+- Kartennummer, Jahr, Hersteller und optional Spielername.
+- Freie Katalogsuche nach Spieler, Jahr oder Set.
+Sportart auswählbar. Treffer/Variante auswählen und im VAULT speichern.
+Bei unbekannter Sportart wird sie auf derselben Suchseite bestätigt.
+Es gelten weiterhin Duplikatprüfung, NFLverse-Ergänzung und vorhandene Anbieterzugänge.
+Scanner → Scan-Optionen → „Kartensuche öffnen“ führt ebenfalls auf diese Seite.
+Der Wechsel entfernt alte Dialogformulare, damit keine doppelten Suchfelder bleiben.
+Direktadresse nach Installation: https://app.4doubleu.de/touchdown/#cardsearch
 
-Sammlung, Fotos, Passwort, Schlüssel, Nutzungszähler und Werte bleiben erhalten.
-Keine config.php/cards.php/installation.php/provider-install.php oder anderen
-privaten Laufzeitdaten im öffentlichen Update. Keine persönlichen Schlüssel.
-Fehlt ein Schlüssel auf deinem Server, unter Einstellungen einmal speichern.
-Die Update-ZIP selbst nicht als öffentliche Datei auf deinen Webspace hochladen.
+UPDATE — NICHTS LÖSCHEN
+1. Vorher in Einstellungen ein Sammlungs-Backup herunterladen.
+2. ZIP auf dem Computer entpacken.
+3. Enthaltenen Ordner touchdown/ im bisherigen Domain-Hauptordner mit dem vorhandenen
+   touchdown/ zusammenführen. Gleichnamige PROGRAMMDATEIEN überschreiben, keine
+   nicht mitgelieferten Dateien löschen. Nicht in touchdown/touchdown/ hochladen.
+4. Seite/PWA schließen und erneut öffnen, gegebenenfalls neu laden. Offline-Cache 28.
+Sammlung, Fotos, Passwort, Schlüssel und gespeicherte Werte bleiben erhalten.
+Dieses öffentliche Update enthält keine persönlichen Schlüssel oder Laufzeitdateien.
 
-BEHOBENE FEHLER
-- Zahlenwerte aus APIs wie Jahr, Kartennummer und Trikotnummer gehen nicht mehr verloren.
-- Kartennummer-Suche übernimmt ausdrücklich ausgewählte Treffer direkt in den VAULT.
-- Katalogsuche ohne Kartenfoto kann Karten ebenfalls direkt speichern.
-- Fehlender Release-/Sportartabruf blockiert den vorhandenen Kartentreffer nicht mehr.
-- Bei unbekannter Sportart gibt es eine funktionierende, sichtbare Auswahl.
-- Neuere UUID-Versionen einschließlich UUIDv7 werden für Cardsight akzeptiert.
-- Sportartwechsel macht alte leere Ergänzungsergebnisse ungültig.
-- Ein ausdrücklich gestarteter Gemini-Fotocheck ergänzt Felder auch bei deaktivierter
-  Automatik. Ein deaktivierter Gemini-Anbieter wird nicht heimlich eingeschaltet.
-- Bei Spielern mit verschiedenen ausgeschriebenen Vornamen reicht derselbe Anfangs-
-  buchstabe nicht mehr für eine automatische Übereinstimmung.
+ANDROID
+Der neue eigene Navigationseintrag „Suche“ ist in Android 2.2 enthalten.
+Neue APK über die bestehende App installieren; NICHT vorher deinstallieren.
+Für den Download auf deiner Website sideline.apk im Domain-Hauptordner aktualisieren.
 
-SO ARBEITEN DIE QUELLEN ZUSAMMEN
-Cardsight ist die erste Bilderkennung. Bei keinem Treffer oder einem Anbieterfehler
-wird ein eingerichteter AI-CardVault-Zugang genutzt. Ohne passenden Treffer kann Gemini
-sichtbare Kartendaten lesen. Damit wird in der eigenen CSV, im Cardsight-Katalog und
-bei Bedarf im TheCardAPI-Katalog weitergesucht. IDs der Anbieter bleiben getrennt.
-Ein nicht unabhängig im Katalog bestätigter Gemini-Treffer bleibt ein unbestätigter
-Vorschlag und muss von dir geprüft werden. Keine automatische Speicherung durch KI.
+IPHONE
+Die auf dem Homebildschirm installierte Web-App übernimmt das Web-Update.
+Das iOS-Quellprojekt 1.6 besitzt ebenfalls einen Such-Tab; es wurde syntaktisch
+geprüft, aber nicht mit Xcode gebaut oder signiert. Kein installierbares IPA.
 
-Genaue Erstvorschläge nutzen dieselbe Ergänzung aus Cardsight-Detaildaten, NFLverse
-und aktiviertem Gemini. Gemini vergleicht die Karte und Parallelvariante. Ein klarer
-Identitätswiderspruch kann automatisch eine zweite CardVault-Erkennung auslösen;
-abweichende Vorschläge bleiben zur Auswahl sichtbar. Unter Last/bei Netzproblemen
-ist das gemeinsame Zeitfenster begrenzt, damit ein Anbieter nicht dauerhaft blockiert.
-TheCardAPI liefert Katalog und bestätigte Verkaufspreise, keine erfundene Bild-API.
-Verkaufspreise brauchen weiter deine bewusste Auswahl passender Vergleichsverkäufe.
-
-NFLVERSE
-15.640 heruntergeladene Kaderzeilen für 2022, 2023, 2024, 2025 und 2026 liegen dem
-Paket bereits bei. Kein R, Docker oder zusätzlicher API-Schlüssel nötig. Die lokale
-Kopie kann Spielerfelder ergänzen, auch wenn Gemini/andere externe APIs ausfallen.
-Zuordnung: Spielername und Kartenjahr, zusätzlich ein bekannter Kartenverein.
-Verein und Position werden ausgeschrieben; Trikotnummer bleibt eine Zahl.
-Teamwechsel werden nach Saison behandelt. Ein bekannter Kartenverein kann einen
-historischen Teamabgleich bei späteren Karten pensionierter Spieler ermöglichen.
-Eigene bereits ausgefüllte Angaben werden erhalten. Sichtbare Kartenfakten können
-vorläufige automatisch gesetzte Saisonwerte korrigieren, etwa bei Throwback-Karten. Doppelte Namen, mehrere
-Vereine/Nummern oder fehlendes Kartenjahr dürfen nicht zu erfundenen Daten führen.
-Nicht jeder Spieler, jede Legendenkarte oder jede Parallelvariante ist abgedeckt.
-Erkennbare bestehende VAULT-Karten können über „Fehlende Kartenangaben ergänzen“
-dieselben saisonbezogenen Felder erhalten. Rohdaten enthalten weitere Felder;
-die App nutzt nur Namen/Alias, Saison, Team, Position, Nummer und eine Spieler-ID.
-Datenstand und verfügbare Saisons stehen unter Einstellungen.
-
-PRÜFGRENZEN
-Die echten NFLverse-Dateien wurden heruntergeladen und ihre Zuordnung getestet.
-KI-/Kartenanbieter-Antworten sind automatisiert mit simulierten Antworten geprüft;
-echte Schlüsselgültigkeit oder Erkennungsqualität konnte hier nicht bestätigt werden.
-Nutze den Gemini-Verbindungstest auf deinem ALL-INKL-Server für die konkrete Ursache.
-Auch mit funktionierenden APIs kann keine App jede Kartenvariante sicher bestimmen.
-Aktuelle Marktpreise und neue Bilderkennung benötigen Internet; gespeicherte Sammlung
-und bekannte Werte sind weiterhin über die Offline-Funktion nutzbar.
-
-ANDROID UND IPHONE
-Web-Update zuerst hochladen. Android 2.1 als separate APK über die bisherige App
-installieren; vorher NICHT deinstallieren. Für den Download-Link auf deiner Website
-sideline.apk im Domain-Hauptordner erneuern. iPhone-PWA übernimmt das Web-Update.
-iOS 1.5 ist ein syntaktisch geprüftes Quellprojekt, ohne Xcode-Build oder Signierung.
+Die bisherigen Funktionen aus Update 27 bleiben enthalten. NFLverse-Saisondaten
+und Anbietergrenzen sind in UPDATE-V27-ANLEITUNG.txt / NFLVERSE-DATENQUELLEN.txt erklärt.
