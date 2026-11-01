@@ -1,3 +1,48 @@
+SIDELINE UPDATE 36 – VOLLSTÄNDIG MANUELL EINTRAGEN UND SPÄTER ABGLEICHEN
+
+INSTALLATION
+ZIP entpacken. Inhalt des ZIP-Ordners touchdown über die vorhandenen Sideline-Dateien auf ALL-INKL kopieren, inklusive api.php und _private. Überschreiben, nichts löschen. Kein touchdown/touchdown-Unterordner. Vorher Backup erstellen, soweit zugänglich. Sammlung, Fotos, Passwort, API-Schlüssel, Preise, eigene Katalogimporte und Zähler bleiben erhalten. App vollständig schließen und erneut öffnen. PHP 8.1 oder neuer erforderlich. Die Neuerungen gehören zur Web-App/PWA, native Apps wurden nicht neu gebaut.
+
+1. KARTEN MANUELL ANLEGEN
+Im VAULT „Karte manuell anlegen“ drücken oder Menü „Manuell“ öffnen. Auf dem Smartphone auch unter Mehr → Manuell eintragen & abgleichen.
+
+Alle Felder selbst eingeben: Spieler, Sport, Jahr, Set/Hersteller, Kartennummer, Parallelvariante, Seriennummer, Zustand, Grading, Anzahl, Kaufpreis, Notizen und weitere optionale Angaben. Ein eigenes Foto kann über „Karte fotografieren“ aufgenommen und zugeschnitten werden, ist aber nicht erforderlich. Kein Scan und kein Erkennungsanbieter sind zum manuellen Speichern nötig. Deine bestehende automatische Preis-Einstellung bleibt separat gültig.
+
+Die Markierung „Manuell eingetragen · beim manuellen Abgleich berücksichtigen“ ist beim neuen manuellen Eintrag voreingestellt. Diese Karten erscheinen im VAULT mit Kennzeichnung. Serialnummern wie 96/99 sind separat von der Kartennummer einzutragen. Unbekannte Angaben leer lassen; Base nur bewusst auswählen/eintragen. Manuell geschätzte Werte sind keine bestätigten Verkaufspreise.
+
+Ältere manuelle Karten besitzen noch keine zuverlässige Herkunftsmarkierung. Deshalb werden sie nicht pauschal geraten oder automatisch umklassifiziert. Öffne sie im VAULT → Bearbeiten → „Manuell eingetragen“ ankreuzen → speichern. So kannst du vorhandene manuelle Karten in den späteren Abgleich aufnehmen. Neue KI-/Scanner-/Cardloader-Karten werden nicht ungefragt als manuell behandelt.
+
+2. ALLE MANUELLEN KARTEN VERGLEICHEN
+Menü Manuell → „Alle manuellen Karten abgleichen“. Der Lauf umfasst ausschließlich ausdrücklich als manuell markierte Karten, maximal 1.000 pro Lauf. Pro Quelle wird schrittweise gearbeitet; Fortschritt bleibt geschützt auf dem Webserver gespeichert. Der Browser kann nach dem laufenden Schritt pausieren, und der Abgleich lässt sich später fortsetzen. Wenn die Seite im Hintergrund ist, werden keine neuen Schritte gestartet. Bei einer Anbietergrenze (HTTP 429) pausiert der Lauf am selben Schritt, bis du mit verfügbarem Kontingent fortsetzt.
+
+Quellen: lokaler CARDLEAGUE-/NFL-Katalog, Cardsight, AI CardVault, Ximilar, TheCardAPI und historische NFLverse-Daten. Eingerichtete Bildanbieter werden unabhängig voneinander geprüft, auch wenn bereits ein anderer Vorschlag existiert. Ohne eigenes Kartenfoto entfallen die Bilderkennungen; Katalog- und Textsuchen bleiben möglich. Nicht konfigurierte, ausgeschaltete und fehlgeschlagene Quellen werden im Ergebnis benannt, nicht als erfolgreich dargestellt. Es gelten alle bisherigen API-Grenzen und mögliche Kosten. Keine Tarife werden automatisch freigeschaltet oder Grenzen erhöht.
+
+Wenn keine vorherige Quelle dieselben vollständigen Kartenmerkmale liefert, kann eBay als letzte Angebotsreferenz suchen. eBay-Titel oder aktive Angebotspreise werden hier nicht blind als Kartendaten oder Verkaufspreise übernommen. Ein passender Texttreffer bestätigt keine Parallelvariante oder Fotoidentität.
+
+3. VORSCHLAG AUSWÄHLEN, GEMINI ZULETZT PRÜFEN LASSEN
+Nach Abschluss oder Pause kannst du die geprüften Quellen öffnen und einen Kartenvorschlag auswählen. Alternativ „Meine bisherigen Angaben ergänzen / prüfen“ nutzen. „Vorschlag abschließend prüfen · Gemini zuletzt“ lädt zusätzliche verfügbare Angaben und führt bei aktiviertem, eingerichtetem Gemini und eigenem Foto dessen Schlussprüfung aus. Diese bewusst gestartete Prüfung darf auch bei ausgeschalteter automatischer Schlussprüfung des normalen Scanners laufen. Gemini ist kein Ersatz für dein Prüfen und keine Garantie für eine richtige Erkennung.
+
+Fehlendes Foto, fehlender Schlüssel, ausgeschaltetes Gemini, eine unsichere/abweichende Antwort oder ein Verbindungsfehler werden angezeigt. Ein gescheiterter Aufruf wird nicht als erfolgreiche Prüfung gewertet. Nach eigener Prüfung kannst du die ausgewählten Änderungen trotzdem ausdrücklich bestätigen. Bereits gespeicherte Angaben werden niemals ungefragt überschrieben.
+
+4. ÄNDERUNGEN ÜBERNEHMEN
+Die Vorschau zeigt je Feld den bisherigen und vorgeschlagenen Wert. Ergänzungen leerer Felder sind vorausgewählt; bestehende abweichende Angaben musst du bewusst auswählen. Nicht mehr passende Katalogverknüpfungen müssen bei einer gewählten Identitätskorrektur mit entfernt werden. Ein neuer Kataloglink darf nicht getrennt von den dazugehörigen geänderten Kartenmerkmalen übernommen werden. Namensräume von Cardsight und TheCardAPI bleiben getrennt.
+
+Gewünschte Felder auswählen, die ausdrückliche Prüfung der Änderungen/Quelle/Warnungen ankreuzen und „Ausgewählte Änderungen übernehmen“ drücken. Nur diese Felder werden aktualisiert. Foto, Anzahl, Kaufpreis, Notizen, Favorit und Ablage bleiben erhalten. Nicht manuell markierte Karten bleiben unangetastet. Die manuelle Markierung bleibt bestehen, damit du später erneut abgleichen kannst.
+
+Wenn eine Karte während des Abgleichs anderweitig bearbeitet wurde, wird der alte Vorschlag nicht darübergeschrieben. Ein zwischenzeitlich ersetzter Vorschlag hat eine neue Kennung; eine alte Bestätigung kann keine neuen, ungeprüften Werte freigeben. Wiederholte Übernahmeanfragen erzeugen keine zweite Karte. Eine Änderung, die eine bereits vorhandene Karte duplizieren würde, wird zur separaten Prüfung angehalten.
+
+5. PREISE UND ERNEUTER ABGLEICH
+Optional nach der Übernahme nach einem passenden belegten Euro-Marktpreis suchen. Auch ohne Datenänderungen steht „Passenden Marktpreis aktualisieren“ zur Verfügung. Durchschnitt passender bestätigter Verkäufe bzw. der ausdrücklich gekennzeichnete letzte belegte eBay-Verkauf bleiben die bisherigen Preisquellen. Keine aktiven Angebotspreise, keine KI-erfundenen Preise. Bei fehlenden passenden Daten bleibt der Preis offen.
+
+„Abgleich verwerfen · Karten behalten“ entfernt nur die gespeicherten Vergleichsentwürfe, niemals VAULT-Karten oder bereits übernommene Änderungen. Danach kannst du einen neuen Lauf für alle manuell markierten Karten starten. Neue Schlüssel oder behobene Providerfehler werden beim neuen Lauf berücksichtigt; ein bereits abgeschlossener Quellenschritt wird nicht unbemerkt erneut kostenpflichtig abgefragt.
+
+TECHNISCHE GRENZEN UND PRÜFUNG
+Der bestehende geschützte Dateispeicher bleibt erhalten, keine MariaDB-Installation erforderlich. Vergleichsdaten werden pro Karte getrennt gespeichert; Schrittantworten übertragen nur den geänderten Fortschritt. Der Browser zeigt 20 Karten je Seite. Lange Sammlungen und alle eingerichteten Anbieter können viele Aufrufe und mehrere Kontingentzeiträume benötigen. Ein eigener öffentlicher Server-/Anbieterzugang war hier nicht vorhanden; geprüft wurden Abläufe mit kontrollierten Anbieterantworten sowie dem echten mitgelieferten lokalen Katalog. Keine behauptete vollständige Katalogabdeckung oder Erkennungsquote. Manuelles Speichern und dieser Abgleich benötigen die Verbindung zu deinem Webserver; Cloud-Erkennung und neue Preise benötigen Internet.
+
+Alle bisherigen Funktionen einschließlich KI-Menü und Gemini-Anleitung aus Update 35 bleiben enthalten. Die tatsächliche Google-Verbindung auf deinem ALL-INKL-Server muss weiterhin über den Verbindungstest bestätigt werden.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 35 – EIGENES MENÜ KI
 
 INSTALLATION
