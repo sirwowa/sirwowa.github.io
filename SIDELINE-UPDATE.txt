@@ -1,3 +1,24 @@
+SIDELINE UPDATE 33 – SAMMLUNG WIEDER ZUGÄNGLICH HALTEN
+
+INSTALLATION
+ZIP entpacken. Den enthaltenen Ordner touchdown über den vorhandenen Ordner auf ALL-INKL hochladen und Dateien überschreiben. Besonders api.php und ALLE Dateien im Unterordner _private mit hochladen. Den vorhandenen Ordner und dessen Daten NICHT löschen. Vorher Backup erstellen, soweit zugänglich. Karten, Fotos, Passwort, Schlüssel, Preise, eigene Katalogimporte und Verbrauchszähler sind nicht im Update enthalten und bleiben erhalten. Danach App vollständig schließen und neu öffnen bzw. Browser neu laden. PHP 8.1 oder neuer muss für die Domain aktiv sein.
+
+WAS GEÄNDERT WURDE
+Bisher wurden PHP-Zusatzdateien vor der Fehlerbehandlung geladen. Eine fehlende oder fehlerhafte Datei konnte deshalb eine leere Antwort oder HTML-Fehlerseite erzeugen. Der Browser zeigte nur „Die PHP-Schnittstelle antwortet nicht korrekt“.
+
+Der Start der Schnittstelle ist jetzt in die JSON-Fehlerbehandlung eingeschlossen. Unbeabsichtigte Ausgaben/Warnungen werden nicht vor die JSON-Antwort gesetzt. Fehlende oder fehlerhafte optionale Dateien auto-market.php, cardloader.php oder ximilar.php blockieren nicht mehr den gesamten VAULT. Nach Anmeldung wird das betroffene Modul mit Dateiname und Fehlerart angezeigt. Die betroffene Zusatzfunktion bleibt bis zum vollständigen Upload gesperrt. Zugangsdaten werden nicht ausgegeben.
+
+Die Web-App lädt Sammlung und Zusatzinformationen getrennt. Ein Fehler in Anbieterstatus, gespeicherten Preisen oder Verbrauchsanzeige versteckt eine erfolgreich geladene Sammlung nicht mehr. Falls die eigentliche Kartenabfrage scheitert, nennt die Meldung jetzt HTTP-Status und betroffene API-Funktion. Es werden keine Karten zurückgesetzt oder gelöscht.
+
+DIAGNOSE
+Wenn es nach vollständigem Upload weiterhin nicht geht: genaue neue Fehlermeldung einschließlich HTTP-Status/Funktionsname oder Diagnose-Code mitteilen, keine API-Schlüssel. Wenn die Sammlung lädt und nur ein Modul fehlt, die in der Meldung genannte Datei aus dieser ZIP nochmals hochladen. Einstellungen → Serverdiagnose bleibt vorhanden.
+
+Die konkrete Ursache auf deinem ALL-INKL-Server konnte hier nicht bestätigt werden; der direkte Abruf ist aus dieser Umgebung nicht erreichbar. Die beschriebene Schwachstelle wurde dagegen lokal mit fehlenden Dateien, fehlerhaftem PHP-Include, ungewollter Ausgabe und nicht-JSON-Antworten reproduziert und die Korrektur dafür geprüft. Keine automatische Installation oder Änderung der PHP-Version beim Hoster vorgenommen.
+
+Alle Funktionen aus Update 32 bleiben enthalten: automatische Preise, Cardloader-Import und private Ximilar-Anbindung. Cardstream bleibt ein separat zu betreibender Python-Dienst und ist nicht installiert. Native Apps wurden nicht neu gebaut; keine neue APK erforderlich.
+
+
+BISHERIGE FUNKTIONEN UND HINWEISE
 SIDELINE UPDATE 32 – AUTOMATISCHE PREISE, CARDLOADER UND XIMILAR
 
 INSTALLATION
