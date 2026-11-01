@@ -1,0 +1,54 @@
+SIDELINE UPDATE V26 — NICHTS LÖSCHEN
+
+Dieses Paket aktualisiert die Web-App ab Version 25. Die Dateien gehören in
+DENSELBEN Domain-Hauptordner wie bisher, sodass sich touchdown/ mit dem vorhandenen
+Ordner touchdown/ verbindet. Nicht in touchdown/touchdown/ entpacken.
+
+1. In der App unter Einstellungen ein Sammlungs-Backup herunterladen.
+   Zusätzlich nach Möglichkeit den Serverordner touchdown/_private/ privat sichern.
+2. ZIP auf deinem Computer entpacken. Den enthaltenen Ordner touchdown/ über den
+   bestehenden Ordner auf dem Webspace kopieren. Vorhandene GLEICHNAMIGE Dateien
+   überschreiben, Ordner zusammenführen. NICHT den alten Ordner löschen/ersetzen
+   lassen und keine Funktion zum Löschen nicht enthaltener Serverdateien verwenden.
+3. Die Update-ZIP selbst nicht hochladen. Sie wird nicht vom Webserver entpackt.
+4. https://app.4doubleu.de/touchdown/ erneut öffnen und einmal neu laden.
+   Eine installierte Web-App einmal schließen/öffnen; ihr Offline-Cache wird erneuert.
+5. Einstellungen → Gemini: Schlüssel speichern, Scan+ aktivieren und die automatische
+   Kartenprüfung aktivieren. Wenn dein Schlüssel schon gespeichert ist, bleibt er
+   erhalten. Das öffentliche Update enthält bewusst keine persönlichen Schlüssel.
+
+Sammlung, Fotos, Passwort, Kartenwerte und Schlüssel bleiben bei diesem Update erhalten.
+Dieses Update enthält KEINE config.php, cards.php, installation.php, Zugangsdaten,
+Laufzeitdaten, Nutzungszähler oder API-Installationsdateien. Es benötigt keine erneute
+Einrichtung und keinen Datenbankimport. Auf dem Server vorhandene private Daten behalten.
+
+NEU
+- Erster genauer Treffer: automatische Gemini-Prüfung sofort nach der Erkennung.
+- Vergleich mit Spieler, Jahr, Set, Kartennummer und gewählter Parallelvariante.
+- Verein auch anhand eindeutig gedruckter Logos, Trikotnummer am abgebildeten Trikot;
+  Position/Kartentyp aus zuverlässigem Kontext erst nach bestätigbarer Spieleridentität.
+- Vollständige Namen, vorhandene eigene Angaben bleiben bestehen. Unbekanntes bleibt leer.
+- Karte und Parallel haben getrennte Ergebnisse: passt laut Gemini / abweichend / unklar.
+- Unsichere Parallelvarianten werden niemals stillschweigend zur Basiskarte gemacht.
+  Sichtbare Variantenvorschläge selbst auswählen. Bei Abweichung oder Unsicherheit
+  vor dem Speichern bewusst prüfen/bestätigen. Geänderte Auswahl wird neu geprüft.
+- Kartenfelder und Warnungen werden sichtbar gezeigt, nicht in den Zusatzoptionen versteckt.
+- Fehlender/deaktivierter Schlüssel und API-Fehler sind ausdrücklich erkennbar.
+- Mehrere Karten: erste Auswahl wird automatisch geprüft, jede weitere spätestens beim
+  Speichern. Nicht sämtliche Alternativtreffer werden ungefragt an Google gesendet.
+
+WICHTIG
+Gemini benötigt Internet und Google-Kontingent, auch wenn die Sammlung offline nutzbar ist.
+Keine Garantie für jede Karte/Parallel: nicht sichtbare Druckmerkmale lassen sich nicht
+zuverlässig erkennen. Keine Echtheitsprüfung. Spiegelungen können die Prüfung verhindern.
+Die lokale Monatsgrenze gilt weiter. Ein API-Schlüssel kann vorhanden und trotzdem vom
+Anbieter abgelehnt sein. Echte Google-Aufrufe sind hier durch eine Netzwerksperre ungeprüft;
+Antwortverarbeitung und App-Abläufe werden mit simulierten Anbieterantworten getestet.
+
+ANDROID
+Das Web-Update aktualisiert den Server für die native App. Die neue native Oberfläche
+und frühzeitige Prüfung sind im separaten Android-Update 2.0 enthalten. APK als Update
+installieren, alte App NICHT vorher deinstallieren. sideline.apk gehört in den Domain-
+Hauptordner, wenn du den Download-Link auf deiner Website ebenfalls erneuern möchtest.
+Auf iPhone ist das Web-Update für die installierte PWA ausreichend. Das Swift-Projekt
+bleibt Quellcode; es ist kein signiertes oder mit Xcode geprüftes iPhone-Installationspaket.
