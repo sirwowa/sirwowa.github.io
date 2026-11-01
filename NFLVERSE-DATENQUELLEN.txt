@@ -1,0 +1,19 @@
+NFLverse-Daten in Sideline
+Quelle: nflverse/nflverse-data, Release „rosters“.
+https://github.com/nflverse/nflverse-data
+Datenwörterbuch: https://nflreadr.nflverse.com/articles/dictionary_rosters.html
+Ladefunktion und URL-Schema: https://raw.githubusercontent.com/nflverse/nflreadr/main/R/load_rosters.R
+
+Mitgelieferte Saisons:
+https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2022.csv
+https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2023.csv
+https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2024.csv
+https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2025.csv
+https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2026.csv
+
+Stand der lokalen Kopie: 01.11.2026. 15.640 Kaderzeilen, keine 15.640 verschiedenen Spieler.
+Verwendete Felder: season, team, position, jersey_number, full_name, football_name,
+last_name und gsis_id/esb_id zur Unterscheidung gleichnamiger Spieler.
+Keine Spielerbilder oder Rookie-Jahre in dieser Funktion übernommen.
+Die NFL-Daten unterliegen den Nutzungsbedingungen ihrer jeweiligen Rechteinhaber.
+Sideline gehört nicht zu NFL oder nflverse. Quellenangabe in den Einstellungen.
