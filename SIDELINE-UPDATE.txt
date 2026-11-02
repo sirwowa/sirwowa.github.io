@@ -1,22 +1,46 @@
-SIDELINE UPDATE 39 – EBAY-VERKAUFSPREISE ZUERST
+SIDELINE UPDATE 40 – FOTOS SOFORT SPEICHERN, PDF-CHECKLISTEN ZUERST
 
-1. Vorher unter Einstellungen ein Sammlungs-Backup herunterladen.
+INSTALLATION AUF ALL-INKL
+1. Einstellungen → Backup herunterladen.
 2. ZIP auf deinem Computer entpacken.
-3. Den INHALT des Ordners touchdown in dein vorhandenes Webverzeichnis /touchdown/ hochladen; vorhandene Programmdateien überschreiben. Nicht den ganzen Serverordner löschen. Keinen zweiten touchdown-Unterordner anlegen.
-4. Seite schließen und erneut öffnen; bei Bedarf einmal neu laden.
+3. Den INHALT des Ordners touchdown in dein bestehendes Verzeichnis /touchdown/ hochladen. Vorhandene Programmdateien überschreiben; NICHT den Serverordner löschen und keinen zweiten touchdown-Unterordner anlegen.
+4. Unbedingt ALLE Unterordner mitnehmen: ocr/, ocr/lang/, _private/nfl-seed/ sowie die neuen PHP- und JS-Dateien. OCR-Dateien sind keine persönlichen API-Schlüssel. Datenbasis und Sprachmodell sind im Paket enthalten.
+5. App schließen und erneut öffnen. Bei Bedarf einmal neu laden. Der Browser erneuert seinen statischen Cache.
+Karten, Fotos, Passwort, API-Schlüssel und eigene Produktimporte bleiben erhalten. Dieses Update enthält keine persönliche Konfiguration und keinen Installationscode, der deine Einrichtung überschreibt.
 
-Karten, Fotos, Passwort und API-Schlüssel bleiben erhalten; das Update enthält keine persönlichen Konfigurationsdateien.
+NEUER SCANNER
+Scanner öffnen → Kamera startet direkt. Karte in den Rahmen legen → auslösen oder Auto aktivieren. Das Foto wird zuerst im VAULT gespeichert; die Erkennung läuft danach weiter. Die Kamera bleibt für die nächste Karte geöffnet. Über das kleine Zahnrad sind zwei/vier Karten pro Aufnahme wählbar. Jede ausgeschnittene Karte wird einzeln gespeichert und abgeglichen.
+Kein zweites Bereit-/Speichern-Formular im Aufnahmeablauf. Die Touchdown-Animation bestätigt die gespeicherte Aufnahme, nicht eine garantierte richtige Identifikation.
+Bei fehlgeschlagenem Upload wird das Foto nach Möglichkeit im lokalen Browser-Speicher vorgemerkt. Bei wiederhergestellter Verbindung beziehungsweise beim erneuten Öffnen der angemeldeten App wird es hochgeladen. Wiederholte Übertragung mit derselben Aufnahme-ID erzeugt keine zweite Karte. Nicht hochgeladene Fotos bleiben an dieses Gerät und diesen Browser gebunden; Browserdaten nicht löschen, solange der Upload aussteht.
+Anbieterlimits verhindern weder Aufnahme noch VAULT-Speicherung. Ihre Online-Erkennung und Kontingente werden nicht umgangen: Fehlt ein passender lokaler Treffer und sind Anbieter nicht verfügbar, bleibt das Foto mit einem Hinweis gespeichert. In den Kartendetails lässt sich die Ergänzung erneut starten oder alles selbst eintragen.
+Die Warteschlange arbeitet bei geöffneter, sichtbarer App; noch nicht gestartete Schritte werden beim nächsten Öffnen fortgesetzt. Es wird kein dauerhafter Hintergrunddienst oder Cronjob auf deinem Hosting eingerichtet.
 
-PREISE
-Einstellungen → Automatische Preise: aktivieren. Die App fragt beim Öffnen bis zu drei noch nicht abgefragte Karten ab. Bei vorhandenen Preisen in den Kartendetails aktualisieren; gespeicherte Werte werden nicht pauschal gelöscht.
-Reihenfolge: bestätigte passende eBay-Verkäufe über TheCardAPI zuerst; danach Cardsight; fehlen passende Verkaufsdaten, eBay-Browse-Festpreisangebote. Ein einzelner Verkauf ergibt einen Preis, mehrere passende Verkäufe ergeben einen arithmetischen Durchschnitt in Euro. TheCardAPI-Zugang mit Verkaufsdatenberechtigung ist erforderlich. Produkt-/Spielername, Jahr, Kartennummer und exakte Variante müssen übereinstimmen; ohne gesicherte Variante bleibt der Preis offen. Base ausdrücklich eintragen, wenn bestätigt.
-Eine Cardsight-Katalog-ID ist optional. Bestehende Karten werden durch die Preisabfrage nicht umbenannt.
-Deine eBay-AppID/CertID bleiben für die vorhandene eBay-Angebotssuche nutzbar. Die Browse API stellt keine abgeschlossenen Verkaufspreise bereit; ein erfolgreicher OAuth-Test weist keine Freischaltung für Verkaufsdaten nach. Aktive Festpreisangebote werden ausdrücklich als eBay-Angebotspreis bezeichnet: arithmetischer Durchschnitt von maximal fünf geprüften Treffern, ohne Versand und Einfuhrkosten. Bei Varianten, Nummerierung und Grading müssen auch diese Merkmale zu den strukturierten Verkäuferangaben passen. Ungenügende Angaben, Auktionen, erkannte Bündel und falsche Karten werden übersprungen. Der Wert ist kein erzielter Verkaufspreis und kein garantierter Marktwert; Angebotspreise werden in VAULT, Details und der Gesamtsummen-Basis gekennzeichnet. Eine eBay-Preissuche kann bis zu sechs der bestehenden 30 lokalen eBay-Such-/Detailabfragen pro UTC-Tag verbrauchen. Das Update schaltet keinen eingeschränkten eBay-Endpunkt frei.
-Die tatsächliche Erreichbarkeit und Berechtigung deiner Schlüssel auf ALL-INKL kann hier nicht geprüft werden.
+ABGLEICHREIHENFOLGE
+1. Lokale Tesseract-Texterkennung auf dem Gerät, mit mitgeliefertem englischem Sprachmodell für die überwiegend englischen Kartentexte. Kein OCR-Anbieter erhält dabei das Foto. Zur ersten Nutzung müssen die lokalen OCR-Dateien von deinem Webspace geladen werden.
+2. Abgleich der gelesenen Spieler-, Jahr-, Set- und Kartennummer-Merkmale mit deinen PDF-Checklisten auf deinem Webspace. Die neu gelieferten PDF-Referenzen haben hierbei Vorrang vor älteren CSV-Versionen desselben Produkts; eigene Importdateien werden nicht verändert.
+3. Nur ohne eindeutige lokale Kartenfamilie folgen die bereits eingerichteten externen Anbieter. Deren Limits, Tarifberechtigungen und mögliche Kosten gelten weiterhin. Bei explizitem „Erkennung erneut starten“ erfolgt zunächst der lokale Abgleich, anschließend eine weitere Anbieter-Ergänzung.
+Eine Text-Checkliste allein ist kein Bilderkennungsmodell. Der lokale Abgleich kann eine Kartenfamilie finden, aber Glanz, Folie, Druckunterschiede und Parallelklassen nicht sicher aus einer Liste ablesen. Unklare Varianten werden nicht als Base ausgegeben. 96/99 ist eine Seriennummer und wird nicht als Kartennummer 96 gesucht. Mögliche gedruckte Varianten stehen beim Bearbeiten als Eingabevorschläge bereit. Ein Treffer bleibt zum Prüfen gekennzeichnet. Manuelles Speichern deiner geprüften Angaben beendet diese Kennzeichnung und verwirft noch laufende automatische Änderungen.
+Nicht eindeutige, unlesbare oder widersprüchliche Angaben bleiben offen. Die App verspricht keine hundertprozentige Erkennung oder Echtheitsprüfung. Bestehende selbst eingetragene Angaben werden nicht still durch einen anderen Spieler ersetzt.
 
-CHECKLISTEN
-Das separate Datenpaket sideline-checklisten-erweitert.zip enthält 28.947 Kartenzeilen und ein Verzeichnis mit 473 Set-Quellen. Davon fehlen weiterhin 471 Degree-Detailseiten. Das ist kein vollständiger Kartenkatalog aller Sets. CSV-Listen werden nicht als eigener Kartenbesitz eingetragen. Einzelkartenbilder fehlen in den gelieferten Daten.
+CHECKLISTEN UND CSV
+22 PDFs ergeben 21 unterschiedliche Checklisten; die beiden Mosaic-2023-Football-PDFs sind binär identisch. 25.905 gedruckte Kartenzeilen und 4.096 gedruckte Parallel-Definitionen wurden übernommen. Signature Class Basketball 2025/26 bleibt als Basketball getrennt von Football.
+Prüfung 1: Nummern, Namen, Abschnitte und deklarierte Kartenzahlen mit MuPDF ausgelesen und abgeglichen.
+Prüfung 2: alle 25.905 Nummer-/Namenspaare und alle 4.096 Parallel-Namen/Auflagen unabhängig mit Poppler gegengelesen; keine Abweichungen. CSV-Roundtrip, IDs und ZIP-Integrität geprüft.
+Die gesamte lokale Katalogbasis enthält nun 37 Produkte und 43.563 Kartenzeilen. Dazu gehören auch die vorher gelieferten HTML-/CSV-Listen. Die neuen gedruckten PDF-Kartenlisten sind vollständig übertragen; das bedeutet keine weltweite Hersteller-Vollständigkeitsgarantie. Die Score-A-Treat-2026-Liste stammt weiterhin aus deiner Multi-Sport-HTML, nicht aus einer zusätzlichen PDF. Es wurden keine Gold-Glazer-/99-Definitionen oder fehlenden Karten erfunden.
+CHECKLISTEN/sideline-checklisten-pdf.zip enthält einzelne CSVs, Gesamtdateien, Herkunft, Seitenzahlen und Prüfbericht. CHECKLISTEN/sideline-checklisten-aktuell.csv ist der kombinierte Katalog. Die Daten sind bereits im App-Update integriert; kein erneuter Import nötig. Kataloglisten nicht als eigenen Kartenbesitz in den VAULT importieren.
+Keine passenden Einzelkartenbilder in den gelieferten PDFs: Bildfelder bleiben leer. Deine eigenen Kameraaufnahmen bleiben die Bilder im VAULT.
+Der Katalog wird über einen kleinen Index und einzelne geschützte Produktdateien geladen, damit eine Erkennung nicht sämtliche Kartenlisten auf einmal einlesen muss. Selbst importierte Dateien bleiben für die normale eigene Katalogansicht erhalten; beim ersten Scanabgleich gelten die neuen PDFs vorrangig.
 
-PRÜFUNGEN
-1. PHP-/JavaScript-Prüfungen und Preisfälle: bestätigte eBay-Verkäufe werden priorisiert; falsche Varianten, Auktionen und erkannte Bündel werden verworfen; Angebote werden ausdrücklich gekennzeichnet; Rückfall und Euro-Umrechnung bleiben erhalten.
-2. Browserprüfung sowie Prüfung des fertigen ZIP-Pakets einschließlich Erhaltung vorhandener privater Daten und Ausschluss privater Schlüssel.
+DARSTELLUNG UND BILDER
+Sprache erscheint nicht mehr in den Kartendetails. Das manuelle Formular zeigt die grundlegenden Angaben zuerst; weitere Felder sind ausklappbar. Auch ohne Spielernamen ist Speichern möglich (vorläufig „Neue Karte“).
+Neue Aufnahmen/Zuschnitte werden als JPEG mit 3.840 Pixeln an der langen Seite gespeichert. Die Kamera wird möglichst hochauflösend angefordert. Kleinere Vorlagen werden mit hochwertiger Interpolation hochskaliert; dadurch entstehen keine echten zusätzlichen Details. Keine generative Retusche, erfundenen Schriften, Logos oder Parallelmerkmale. Ältere eigene Fotos werden nicht überschrieben. Alle VAULT-Bilder haben eine einheitliche Darstellung ohne Abschneiden der Karte.
+
+WERTVOLLE KARTEN IM VAULT
+Goldener Rahmen und Stern-Badge nach dem passenden Euro-Vergleichspreis pro Einzelkarte: ab 50 Euro Wertvoll, ab 100 Euro Highlight, ab 500 Euro Topkarte. Die Grundgrenze ist in Einstellungen → Preise & Highlights änderbar (Highlights = doppelte, Topkarten = zehnfache Grundgrenze). Die Anzahl gleicher Karten erhöht nicht die Einstufung der Einzelkarte.
+Bei laufenden eBay-Angeboten heißt die Markierung ausdrücklich Potenzial / eBay-Angebotsbasis. Nicht geprüfte Kartendaten, eine offene Variante oder Preisstände über 30 Tage bekommen einen neutralen Prüfhinweis statt einer goldenen Einstufung. Glanz, Seriennummer und Seltenheit allein sind kein Preisnachweis. Ohne passenden Preis wird kein Wert erfunden.
+
+OPENAI / CHATGPT
+Eine zusätzliche OpenAI-Anbindung ist möglich, gehört aber nicht zu diesem Update. Dafür wäre ein eigener OpenAI-API-Zugang mit freigeschalteter API-Abrechnung nötig; ein ChatGPT-Abo allein reicht nicht. Ein Schlüssel würde ausschließlich serverseitig gespeichert und nicht in öffentlichen Download-Dateien ausgeliefert. Sinnvolle Aufgaben: Bild-/Textanalyse, Prüfung gegen eingegrenzte Checklisten und Vorschläge bei unklaren Varianten. Auch KI kann unlesbare Aufdrucke nicht zuverlässig rekonstruieren. Eine spätere Fotoverbesserung sollte Original und bearbeitete Version getrennt speichern und keine Kartenmerkmale erfinden.
+
+PRÜFUNGEN DES UPDATES
+Anbieterfreie Sofortspeicherung, idempotente Uploads, lokaler Abgleich vor Online-Erkennung, Quoten-/Ausfallfälle, Schutz manueller Änderungen, Karten-/Seriennummer-Trennung, vollständige PDF-Grundlage und Browserabläufe für Desktop/Smartphone sind geprüft. 110 automatisierte Tests und gezielte Desktop-/Smartphone-Browserprüfungen bestanden. Die tatsächlich gültigen Anbieterberechtigungen auf deinem ALL-INKL-Hosting können hier nicht live verifiziert werden.
