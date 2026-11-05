@@ -1,0 +1,22 @@
+# Growing v10 – lokaler Prüfbericht
+
+5. November 2026. Separate SQLite-Testinstallation, PHP 8.4.24/PDO_SQLite, Chromium/Playwright mit künstlicher Kamera sowie ffprobe/FFmpeg zur unabhängigen Videoanalyse. Kein Zugriff auf produktive Daten, tatsächliche HERO8 oder ein physisches Android-Gerät.
+
+Erfolgreich geprüft:
+
+- Zeitraffer-Berechtigungen: keine anonymen Zugriffe; fremde Testkonten ohne Freigabe haben keinen Zugriff; freigegebene Konten können lesen, dürfen aber keine fremden Fotos löschen. Besitzer-/Uploader-/Adminrechte serverseitig geprüft. API akzeptiert für diese Funktionen JSON-POST.
+- Echtes JPEG und Bildmaße werden geprüft. SVG, falsche Bilddaten, zu große Abmessungen, falsche Quellenkennzeichnung und ungültige Datumswerte zurückgewiesen. Aufnahmezeiten werden nach UTC normalisiert; Metadatenliste enthält keine Bilddaten.
+- Wiederholte Upload-Anfrage und gleiche unveränderte Fotokennung erzeugen keinen zweiten Datensatz. Andere Daten unter bestehender Kennung werden abgelehnt. Natürliche Dateireihenfolge, zugeordnete Importzeiten und erneuter Import ohne doppelte Bilder getestet.
+- Serverkapazitätsgrenze mit isoliertem Quota-Test geprüft. Endgültiges Tagebuch-Löschen räumt die Fotos auf. Admin-Archivierung/Wiederherstellung erhält Fotos; Metadatenexport enthält keine Bilddaten.
+- Android-Aufnahmelogik mit simulierter Kamera: Einzelbild, zeitgesteuerte Zwei-Foto-Serie, Abschalten an der Seriengrenze und funktionierende Vorschau trotz Aktualisierung der App. Ausblenden stoppt Automatik und Kameraspuren; verspätete Berechtigungsfreigabe nach geschlossenem Dialog hinterlässt keine laufende Kamera.
+- Offline-Aufnahme überlebt Browser-Neuladen und wird genau einmal zum Server übertragen. Abgelehntes Foto bleibt mit Fehlermeldung lokal; explizite Wiederholung funktioniert. Verlorene Upload-Antwort führt beim Wiederholen zu keiner doppelten Aufnahme.
+- Rechnerisch 24 Stunden / 300 Sekunden = 288 Fotos, bei 25 Bildern/Sekunde = 11,52 Sekunden Sollvideo. Halbe Sekunden für Import-Planung und natürliche Dateisortierung geprüft.
+- Tatsächlicher MediaRecorder-Export heruntergeladen und unabhängig decodiert: VP9/WebM, 1280 × 720, keine Audiospur, rote/grüne/blaue Testbilder in korrekter Reihenfolge. Fehlende Laufzeitinformation für unterstützten WebM-Aufbau ergänzt und mit ffprobe lesbar; beschädigte Formate unverändert belassen. Browser-Timing ist nicht framegenau garantiert.
+- CMS-Dashboard, Seitenleiste und Navigation zwischen Konten, Daten, Wissensverwaltung, Medien und Nachrichten geprüft. Mobile Seitenleiste inklusive Hintergrundsperre, Fokusführung, Escape und Rückkehr zur App getestet. Browser-Zurück stellt Verwaltungsseite wieder her; Verlauf enthält Kennungen, keine Formulardaten.
+- Admineditor-Regression: Speichern/Abbrechen, Navigationsschutz, Versionskonflikt mit erhaltenem Entwurf, Entwurfsexport, Neuladen, JSON-Bearbeitung, Papierkorb/Wiederherstellung, Passwort-Reset/Erstwechsel, Datenexport, Offline-Sperre und Logout funktionieren im neuen Backend.
+- Responsive Zeitraffer- und CMS-Ansichten zwischen 320 und 1280 Pixeln ohne Dokumentüberbreite. Keine JavaScript-Laufzeitfehler in den geprüften Abläufen.
+- Bestehende Begleiter, geführtes Tagebuch-Anlegen, drei Eingabestufen, Erhalt ausgeblendeter Werte, gemeinsame Preisvorgaben und Ausnahmen, Beobachtungsnotizen, persönliche Erinnerungen/Kalenderexport und Offline-Neustart funktionieren weiterhin.
+- Regression der Obst-/Gemüsebibliothek: Veröffentlichung, Quellen, Versionskonflikt, Suche, Archivierung, Offline-Ansicht und Verwaltungsrechte im CMS bestanden. Migration einer v9-Datenbank erhält bestehende App-, Konto-, Admin- und Wissensdaten unverändert; neue Fototabelle startet leer.
+- Syntaxprüfungen der PHP-Dateien und geänderten JavaScript-Dateien erfolgreich.
+
+Grenzen: Kein direkter GoPro-WLAN-/Bluetooth-Zugriff, keine automatische Quik-Überwachung und keine native Android-Hintergrundaufnahme. Die reale Gerätekompatibilität, Kamera-/Bildschirmberechtigungen und ALL-INKL-Umgebung müssen vor Ort geprüft werden. Keine zugesicherte MP4-Kompatibilität oder exakte Ausgabeframerate. Browser- und Hosting-Speicher sind begrenzt. Die Bezeichnung „redaktionell geprüft“ in der bestehenden Wissensbibliothek bleibt eine Adminbestätigung und keine automatische Fachprüfung. Keine Cannabis-Anbauinhalte hinzugefügt. Kein vollständiges Sicherheitszertifikat und keine Zusicherung völliger Fehlerfreiheit. Testdaten und künstliche Fotos gehören nicht zum Paket.
