@@ -1,0 +1,14 @@
+growfor Kamera · Test 0.1.0 – Android ab Version 8
+
+1. Zuerst das Web-Update 12.6 auf growfor.de installieren.
+2. Auf dem Aufnahme-Handy die APK installieren. Android fragt ggf. nach der Installation aus dieser Quelle. Die App heißt „growfor Kamera · Test“ und ist unabhängig von der GoPro-Bridge.
+3. Handy im normalen WLAN mit Internet lassen, nicht im GoPro-WLAN.
+4. In growfor: Mehr → Kamera / GoPro. Passenden Grow auswählen, Gerätezugang erstellen, gesamten Kopplungscode kopieren. Der Code ist ein begrenzter Foto-Upload-Zugang, kein Kontopasswort. Nicht weitergeben.
+5. In der Android-App Code speichern, Kamera auswählen, Kamera- und Benachrichtigungsberechtigung erlauben. „Testfoto“ drücken. Erst prüfen, ob es in Grow → Mehr → Kamera & Zeitraffer erscheint.
+6. Intervall wählen und automatische Aufnahme starten. Für einen längeren Pflanzen-Zeitraffer sind 5–10 Minuten ein technischer Ausgangspunkt. Eine dauerhafte Aufnahme zeigt eine Benachrichtigung mit Stopp-Schaltfläche. Der Standort der Kamera sollte gleich bleiben.
+
+Fotos werden nach der Aufnahme über Internet hochgeladen. Standardmäßig nur WLAN/Ethernet; mobile Daten sind ausdrücklich zuschaltbar. Offline bleiben bis zu 100 Fotos bzw. 50 MB lokal vorgemerkt, anschließend pausieren neue Aufnahmen. Bei Verbindung werden wartende Fotos während des laufenden Dienstes nachgesendet. App nicht deinstallieren, bevor ausstehende Fotos hochgeladen oder als ZIP gesichert sind. Vor Grow-Wechsel zuerst die Warteschlange übertragen/sichern. Gerätezugänge laufen spätestens nach 90 Tagen ab und können in growfor widerrufen werden.
+
+Die App verkleinert Fotos auf maximal 1280 Pixel Kantenlänge und 1 MB; sie ersetzt keine Vollauflösungs-Fotobibliothek. Pro Grow gelten maximal 5000 Fotos oder 512 MB im Server. Bei dauerhaftem Uploadfehler stoppen die Aufnahmen; wartende Fotos bleiben erhalten. Statusmeldung prüfen.
+
+Android oder Energiesparen können die Kamera trotz sichtbarem Vordergrunddienst beenden. Herstellerabhängig Akkuoptimierung für die Kamera-App ausschalten. Nach Neustart/Beendigung muss die Aufnahme manuell neu gestartet werden. Stromversorgung, Wärme und Verbindung prüfen. Kein garantierter unbeaufsichtigter Betrieb. Auf deinem Smartphone wurde diese Testversion noch nicht geprüft.
