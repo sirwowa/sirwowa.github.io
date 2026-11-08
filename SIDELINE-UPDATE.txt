@@ -1,17 +1,23 @@
-SIDELINE UPDATE 46 – PRIVATE FOTO-PAKETE
+SIDELINE UPDATE 47 – EINE UPDATE-ZIP, AUTOMATISCHE FOTOS
 
-1. Vorher unter Einstellungen ein vollständiges Sammlungs-Backup herunterladen.
-2. Einstellungen → App aktualisieren: das signierte sideline-update.zip auswählen und mit deinem Passwort bestätigen. Nicht das Komplettpaket verwenden. Sammlung, Passwort und API-Schlüssel bleiben erhalten.
-3. Einstellungen → Fotos & Karten importieren öffnen.
-4. Alle vier Dateien Sideline-VAULT-Fotos-Teil-1.zip bis Teil-4.zip zusammen auswählen. Nicht entpacken.
-5. Vorschau prüfen: Vorhandene Karte aktualisieren, neu anlegen oder auslassen. Uneindeutige Zuordnungen werden ausgelassen, bis du sie bewusst auswählst. Zusätzliche echte Exemplare können ausdrücklich separat angelegt werden.
-6. Auswahl übernehmen. Vorder- und Rückseiten werden zusammen gespeichert. Kaufpreise, Mengen, Favoriten und persönliche Notizen aktualisierter Karten bleiben erhalten. Wiederholte unveränderte Übernahme derselben Paketkarte erzeugt keine Dubletten.
+Du brauchst nur sideline-update.zip. Keine vier Fotopakete und kein separater CSV- oder Foto-Import.
 
-Die privaten Fotopakete werden getrennt bereitgestellt und sind nicht Bestandteil des öffentlichen Programm-Updates. Anzahl, Sportarten, Zuordnung und offene Identitätsfragen stehen ausschließlich in der jeweiligen privaten Kartenliste und Paketvorschau.
-4K bedeutet Exportgröße (lange Seite 3840 Pixel), keine zusätzliche echte Aufnahmeauflösung. Originale unverändert aufbewahren. Ausdrücklich erlaubte generative Vorderansichten sind in den privaten Paketunterlagen und Kartennotizen gekennzeichnet; originalgetreue Zuschnitte liegen zusätzlich unter referenzen im jeweiligen Paket. KI-Retusche kann Druckdetails verändern. Retuschierte Bilder belegen weder tatsächlichen Zustand noch Echtheit oder Parallelklasse; kein Grading- oder Verkaufsnachweis. Technische Bearbeitung umfasst Zuschnitt, Perspektive und vorsichtige Retusche. Starke Überstrahlung und verdeckte Details sind nicht zuverlässig rekonstruierbar. Vorhandene Holo-Strukturen werden erhalten; keine neuen Holo-Muster als Variantenbeweis erfunden.
-Offene Parallelklassen und Produktjahre werden ausdrücklich zur Prüfung markiert. Ein Online-Abgleich kann durch fehlenden Zugriff ausstehen. Es werden keine Preise oder Bewertungen erfunden.
+1. Einstellungen → App aktualisieren öffnen.
+2. Diese signierte Update-ZIP auswählen, mit deinem App-Passwort bestätigen und installieren. ZIP nicht entpacken. Nichts vom Server löschen.
+3. App neu öffnen antippen. Die vorbereiteten Karten und ihre Vorder-/Rückfotos werden automatisch in den VAULT übernommen. Beim ersten Mal die App mit Internetverbindung geöffnet lassen; der Fortschritt wird eingeblendet. Danach sind die Bilder auf deinem Webspace gespeichert.
 
-FOTOSPEICHER UND BACKUPS
-Neue und beim nächsten erfolgreichen Speichern übernommene ältere Fotos werden geschützt unter touchdown/_private/card-photos gespeichert. Diese Dateien sind dauerhafte Sammlungsdaten, KEIN löschbarer Cache. Bei FTP-/Webspace-Backups immer den gesamten _private-Ordner sichern. Bestehende Originaldaten werden beim Update selbst nicht verändert. Vorschaubilder im separaten photo-cache sind erneut erzeugbar.
-Der JSON-Sammlungs-Export enthält weiterhin vollständige eigene Vorder- und Rückfotos; er wird auf dem Server kartenweise ausgegeben. Wiederherstellung größerer Backups erfolgt in kleinen Abschnitten. Ein abgebrochener Import kann teilweise gespeichert sein; erneut importierte identische Karten werden anhand ihrer Kennung ausgelassen. Fotos werden nur nach Anmeldung ausgeliefert; keine öffentlichen Fotolinks oder fremden Bilddienste nötig.
-Das Programm-Update ersetzt keine eigenständigen Android-/iOS-Builds. Es verbessert die Web-App und deren installierte Homebildschirm-Version.
+Die 4K-Fotodaten werden automatisch nachgeladen, damit das Update unter dem bisherigen 32-MB-Upload-Limit bleibt. Es gibt keinen zusätzlichen Datei-Upload. Die unveränderten bearbeiteten Bilddateien werden transportiert; keine weitere Verkleinerung oder Qualitätsreduktion. Für das persönliche vorbereitete Fotopaket ist einmalig rund 75 MB Download auf dem Webserver nötig.
+Die Fotos werden nur verschlüsselt bereitgestellt. Ein bereits im Server gespeicherter, zuvor für dieses Paket verwendeter Cardsight-, Gemini-, TheCardAPI- oder CardVault-Schlüssel schaltet das Paket lokal frei. Der Schlüssel wird für diesen Vorgang nicht an GitHub gesendet. Es gibt dabei keine Bilderkennungs-Anfragen und keinen Verbrauch des Karten-API-Kontingents. Die API-Schlüssel selbst sind nicht im Update enthalten. Wenn bislang keiner dieser eigenen Schlüssel auf dem Server hinterlegt ist, muss einer in den bestehenden Einstellungen gespeichert sein, damit das persönliche Paket entschlüsselt werden kann.
+
+KARTEN UND EIGENE DATEN
+Eindeutige vorhandene Karten werden aktualisiert; Kaufpreise, Mengen, Favoriten und persönliche Notizen bleiben erhalten. Eine bereits übernommene Paketkarte wird auch nach erneutem Öffnen nicht doppelt angelegt. Bei mehreren nicht eindeutig unterscheidbaren vorhandenen Exemplaren wird keine davon überschrieben; die vorbereitete Karte wird als eigener Eintrag ergänzt. Solche Exemplare sind anschließend anhand ihrer Angaben prüfbar. Es werden keine Mengen aus unterschiedlichen vorhandenen Karten zusammengelegt.
+Die Übernahme erfolgt in kurzen Schritten und wird nach Verbindungsabbruch beim nächsten Öffnen oder Wiederverbinden fortgesetzt. Es wird erst nach erfolgreichem Speichern zur nächsten Karte gewechselt. Nach vollständiger Übernahme bleibt der Vorgang erledigt, auch wenn du später eigene Kartendaten bearbeitest oder eine Karte bewusst entfernst.
+Vorhandene Sammlungsdateien, Passwörter, Schlüssel und eigene Checklisten werden vom Programm-Update nicht ersetzt. Ein vollständiges Backup vor einem Update bleibt empfohlen.
+
+BILDER UND IDENTITÄT
+Die VAULT-Kacheln zeigen die vollständige Karte ohne abgeschnittene Druckränder. 4K ist die Exportgröße, keine zusätzliche echte Aufnahmeauflösung. Originale unverändert aufbewahren. Generative Retuschen sind in den Kartennotizen gekennzeichnet; deren ursprüngliche technische Zuschnitte werden zusätzlich geschützt unter _private/vault-retouch-references gespeichert. Diese Originalreferenzen gehören in vollständige Webspace-Backups. Sie sind keine öffentlichen Bildlinks.
+Retusche kann Druckdetails verändern und ist kein Zustands-, Echtheits-, Grading- oder Parallel-Nachweis. Offene Parallelklassen und Produktjahre bleiben ausdrücklich gekennzeichnet. Keine Preise oder Bewertungen werden erfunden.
+
+PERMANENTE SPEICHERUNG
+_private/card-photos und _private/vault-retouch-references sind dauerhafte private Sammlungsdaten, keine löschbaren Caches. Für Webspace-Backups den vollständigen _private-Ordner sichern. Der JSON-Sammlungs-Export enthält weiterhin die eigenen aktiven Vorder- und Rückfotos. Programmdateien dürfen wie gewohnt aktualisiert werden, ohne diese privaten Daten zu löschen.
+Der Webserver benötigt PHP-cURL, OpenSSL und HTTPS-Zugriff auf raw.githubusercontent.com. TLS-Zertifikate und Foto-Prüfsummen werden geprüft. Bei blockierter Verbindung wird keine falsche Erfolgsmeldung angezeigt. Es findet kein direkter Zugriff auf deinen Webserver aus dem Entwicklungs-Chat statt; die installierte App führt die Übernahme selbst aus.
